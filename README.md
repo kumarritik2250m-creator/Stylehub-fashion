@@ -1,11 +1,5 @@
-<div align="center">
+# StyleHub / XPORD final integrated build
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Base: original XPORD/StyleHub Firebase project. Customer pages are included as responsive desktop/mobile files and routed through compact wrapper pages. Existing Firebase config, Firestore rules, store/admin engine, policies and business details from the original project are preserved.
 
-  <h1>Built with AI Studio</h2>
-
-  <p>The fastest path from prompt to production with Gemini.</p>
-
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+Important: Razorpay client key is retained from the original project. For production payment security, server-side order creation/signature verification must use the Razorpay secret on the deployment backend; never expose the secret in frontend files.

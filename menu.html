@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu | StyleHub</title>
+</head>
+<body>
+  <script>
+    (function() {
+      var isMobile = innerWidth <= 767;
+      var target = isMobile ? 'menu-mobile.html' : 'menu-desktop.html';
+      var params = new URLSearchParams(location.search);
+      var ret = params.get('return');
+      if (!ret) {
+        try {
+          var saved = sessionStorage.getItem('sh_menu_return_url');
+          if (saved) {
+            params.set('return', saved);
+          }
+        } catch(e) {}
+      }
+      var qs = params.toString() ? ('?' + params.toString()) : '';
+      location.replace(target + qs);
+    })();
+  </script>
+</body>
+</html>

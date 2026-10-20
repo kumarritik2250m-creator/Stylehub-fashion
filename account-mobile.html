@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>My Account — StyleHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('stylehub-theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+        document.documentElement.dataset.theme = t;
+      } catch(e) {}
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --gold: #d4af37;
+      --gold-dark: #b8972e;
+      --gold-light: #f3e5ab;
+      --gold-badge: #c59b27;
+      --gold-border: rgba(212, 175, 55, 0.45);
+      --bg-cream-icon: #fdf8ee;
+      --icon-amber: #b47818;
+      --text-dark: #111827;
+      --text-muted: #6b7280;
+      --border-light: #f0f0f2;
+      --nav-black: #0d0e12;
+
+      /* StyleHub Theme System */
+      --page-bg: #f7f7f9;
+      --surface-bg: #ffffff;
+      --surface-card: #ffffff;
+      --card-border: #f0f0f2;
+      --text-heading: #111827;
+      --text-body: #111827;
+      --text-sub: #6b7280;
+      --icon-circle-bg: #fdf8ee;
+      --icon-circle-border: transparent;
+      --toggle-track: #eee7d9;
+      --toggle-knob: #fffdf8;
+      --toggle-border: #d8cbaf;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --gold: #d4af37;
+      --gold-dark: #e0bd75;
+      --gold-light: #3a3020;
+      --bg-cream-icon: #2b271d;
+      --icon-amber: #e0bd75;
+      --text-dark: #f5f1e8;
+      --text-muted: #aaa69c;
+      --border-light: #2f302a;
+      --nav-black: #111210;
+
+      --page-bg: #111210;
+      --surface-bg: #181916;
+      --surface-card: #1e1f1b;
+      --card-border: #2f302a;
+      --text-heading: #f5f1e8;
+      --text-body: #ede9df;
+      --text-sub: #aaa69c;
+      --icon-circle-bg: #2b271d;
+      --icon-circle-border: #453c29;
+      --toggle-track: #39362e;
+      --toggle-knob: #29271f;
+      --toggle-border: #524734;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f9;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Mobile First Container */
+    .app-screen {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 96px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* iOS Status Bar Simulation */
+    .ios-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px 4px 22px;
+      background: #ffffff;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: -0.2px;
+    }
+    .ios-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 1. Header */
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px 10px 16px;
+      background: #ffffff;
+      border-bottom: 1px solid #f4f4f6;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hamburger-btn {
+      background: transparent;
+      border: none;
+      padding: 4px 2px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #111827;
+      border-radius: 2px;
+    }
+    .brand-wrap {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .brand-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.1;
+      letter-spacing: -0.4px;
+    }
+    .brand-title span.hub-gold {
+      color: #c59b27;
+    }
+    .brand-tagline {
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      color: #71717a;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .icon-link-btn {
+      background: transparent;
+      border: none;
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      padding: 2px;
+    }
+    .header-badge {
+      position: absolute;
+      top: -5px;
+      right: -6px;
+      background: #c59b27;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 800;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* Main Scroll Area */
+    .content-body {
+      padding: 14px 16px 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* 2. Black Luxury Profile Banner */
+    .luxury-profile-card {
+      position: relative;
+      background: linear-gradient(135deg, #090a0d 0%, #17181f 55%, #0b0c10 100%);
+      border-radius: 18px;
+      padding: 18px 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    /* Gold Wave Glowing Accents */
+    .banner-gold-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(212, 175, 55, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 10% 85%, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
+    }
+    .banner-gold-lines {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+    .profile-banner-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .profile-left-col {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .avatar-wrapper {
+      position: relative;
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+    }
+    .avatar-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #8e95a5;
+      border: 2px solid #d4af37;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+    }
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-camera-btn {
+      position: absolute;
+      bottom: -1px;
+      right: -2px;
+      width: 21px;
+      height: 21px;
+      background: #c59b27;
+      border: 2px solid #0d0e12;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .user-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .user-name-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+    }
+    .user-email-text {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 3px;
+    }
+    .member-badge-line {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #d4af37;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    .btn-edit-profile-action {
+      background: rgba(18, 19, 24, 0.85);
+      color: #ffffff;
+      border: 1px solid #d4af37;
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .btn-edit-profile-action:hover {
+      background: #d4af37;
+      color: #000000;
+    }
+
+    .profile-auth-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, #d4af37 0%, #b89326 100%);
+      color: #0b0c0e !important;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
+      transition: all 0.15s ease;
+      width: fit-content;
+    }
+    .profile-auth-action-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+      color: #000000 !important;
+    }
+    .profile-guest-subtext {
+      color: #9ca3af;
+      font-size: 11px;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    .empty-guest-orders-box {
+      background: #ffffff;
+      border: 1px dashed #e5e7eb;
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4px;
+    }
+    .empty-guest-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fef9c3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .empty-guest-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .empty-guest-sub {
+      font-size: 12px;
+      color: #6b7280;
+      max-width: 260px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .empty-guest-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0d0e12;
+      color: #d4af37;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .empty-guest-btn:hover {
+      background: #000;
+      color: #facc15;
+    }
+
+    /* 3. My Account Heading & Premium Theme Toggle */
+    .account-heading-sec {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .account-heading-left {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .account-main-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-heading, #111827);
+      letter-spacing: -0.4px;
+      line-height: 1.2;
+      transition: color .35s;
+    }
+    .account-main-subtitle {
+      font-size: 12px;
+      color: var(--text-sub, #6b7280);
+      transition: color .35s;
+    }
+
+    /* StyleHub Premium Animated Theme Toggle */
+    .theme-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 0 0 auto;
+    }
+    .theme-label {
+      font-size: 8.5px;
+      color: var(--text-sub, #77736b);
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      transition: color .35s;
+    }
+    .theme-toggle {
+      position: relative;
+      width: 76px;
+      height: 40px;
+      border: 1px solid var(--toggle-border, #d8cbaf);
+      border-radius: 99px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--toggle-track, #eee7d9);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,.07), 0 3px 10px rgba(0,0,0,.04);
+      cursor: pointer;
+      isolation: isolate;
+      transition: background .35s, border-color .35s, box-shadow .25s;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .theme-toggle:focus-visible {
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.35);
+    }
+    .theme-toggle .icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      z-index: 1;
+      color: var(--text-sub, #77736b);
+      transition: color .3s, transform .35s;
+      pointer-events: none;
+    }
+    .theme-toggle .icon svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .theme-toggle .sun {
+      color: #a7792b;
+    }
+    .theme-toggle .moon {
+      color: #7d7b91;
+    }
+    .knob {
+      position: absolute;
+      z-index: 0;
+      top: 4px;
+      left: 4px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--toggle-knob, #fffdf8);
+      box-shadow: 0 2px 7px rgba(0,0,0,.16), inset 0 0 0 1px rgba(179,138,67,.17);
+      transition: transform .42s cubic-bezier(.2,.85,.25,1.25), background .35s, box-shadow .35s;
+      pointer-events: none;
+    }
+    html[data-theme="dark"] .knob {
+      transform: translateX(36px);
+      background: var(--toggle-knob, #29271f);
+      box-shadow: 0 2px 10px rgba(0,0,0,.4), inset 0 0 0 1px rgba(224,189,117,.3);
+    }
+    html[data-theme="dark"] .theme-toggle .sun {
+      color: #77736b;
+      transform: rotate(-25deg) scale(.88);
+    }
+    html[data-theme="dark"] .theme-toggle .moon {
+      color: #e0bd75;
+      transform: rotate(0) scale(1.08);
+    }
+    html[data-theme="light"] .theme-toggle .sun {
+      transform: rotate(0) scale(1.08);
+    }
+    html[data-theme="light"] .theme-toggle .moon {
+      transform: rotate(25deg) scale(.88);
+    }
+
+    /* Circular icon-only back button styling */
+    .sh-circular-back {
+      width: 34px !important;
+      height: 34px !important;
+      border-radius: 50% !important;
+      display: grid !important;
+      place-items: center !important;
+      background: #ffffff !important;
+      border: 1px solid #e5e7eb !important;
+      color: #111827 !important;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+      flex-shrink: 0 !important;
+      transition: background .2s, border-color .2s, transform .2s, color .2s !important;
+    }
+    .sh-circular-back:hover {
+      background: #fdfaf4 !important;
+      border-color: #d4af37 !important;
+      transform: translateY(-1px);
+    }
+    .sh-circular-back svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Complete Dark Theme Palette & Overrides */
+    html[data-theme="dark"] body {
+      background: #111210 !important;
+      color: #ede9df !important;
+    }
+    html[data-theme="dark"] .app-screen {
+      background: #181916 !important;
+      box-shadow: 0 0 50px rgba(0,0,0,0.6) !important;
+      border-color: #272822 !important;
+    }
+    html[data-theme="dark"] .ios-status-bar {
+      background: #181916 !important;
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .top-header {
+      background: rgba(24, 25, 22, 0.98) !important;
+      border-bottom-color: #2b2c25 !important;
+    }
+    html[data-theme="dark"] .brand-title {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .hamburger-btn span {
+      background: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .icon-link-btn {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .sh-circular-back {
+      background: #242520 !important;
+      border-color: #3f4035 !important;
+      color: #f5f1e8 !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+    }
+    html[data-theme="dark"] .luxury-profile-card {
+      background: linear-gradient(135deg, #131411 0%, #1c1d18 100%) !important;
+      border: 1px solid #363226 !important;
+      box-shadow: 0 14px 38px rgba(0,0,0,0.4) !important;
+    }
+    html[data-theme="dark"] .profile-guest-subtext {
+      color: #b5b0a3 !important;
+    }
+    html[data-theme="dark"] .profile-auth-action-btn {
+      background: #d4af37 !important;
+      color: #111210 !important;
+    }
+    html[data-theme="dark"] .btn-edit-profile-action {
+      background: #272822 !important;
+      border-color: #3f4035 !important;
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .account-main-title {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .account-main-subtitle {
+      color: #aaa69c !important;
+    }
+    html[data-theme="dark"] .menu-card-container {
+      background: #1e1f1b !important;
+      border-color: #2f302a !important;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+    }
+    html[data-theme="dark"] .menu-row-item {
+      border-bottom-color: #292a24 !important;
+    }
+    html[data-theme="dark"] .menu-row-item:hover {
+      background: rgba(255,255,255,0.03) !important;
+    }
+    html[data-theme="dark"] .menu-title-primary {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .menu-desc-sub {
+      color: #aaa69c !important;
+    }
+    html[data-theme="dark"] .menu-icon-circle {
+      background: #2b271d !important;
+      border: 1px solid #443c2c !important;
+    }
+    html[data-theme="dark"] .chevron-right-icon {
+      color: #77736b !important;
+    }
+    html[data-theme="dark"] .orders-section-head h2 {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .orders-view-all-link {
+      color: #e0bd75 !important;
+    }
+    html[data-theme="dark"] .order-card {
+      background: #1e1f1b !important;
+      border-color: #2f302a !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
+    }
+    html[data-theme="dark"] .order-item-title {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .order-meta-sub {
+      color: #aaa69c !important;
+    }
+    html[data-theme="dark"] .dots-menu-btn {
+      color: #aaa69c !important;
+    }
+    html[data-theme="dark"] .card-action-btn {
+      background: #141512 !important;
+      color: #e0bd75 !important;
+      border-color: #55482e !important;
+    }
+    html[data-theme="dark"] .card-action-btn:hover {
+      background: #d4af37 !important;
+      color: #111210 !important;
+    }
+    html[data-theme="dark"] .sheet-card {
+      background: #1b1c18 !important;
+      border: 1px solid #33342c !important;
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .sheet-title {
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .sheet-close {
+      color: #aaa69c !important;
+    }
+    html[data-theme="dark"] .sheet-card input,
+    html[data-theme="dark"] .sheet-card select,
+    html[data-theme="dark"] .sheet-card textarea {
+      background: #242520 !important;
+      border-color: #383931 !important;
+      color: #f5f1e8 !important;
+    }
+    html[data-theme="dark"] .sheet-card label {
+      color: #b5b0a3 !important;
+    }
+    html[data-theme="dark"] #GlobalBottomNavigation,
+    html[data-theme="dark"] .bottomnav {
+      background: rgba(24, 25, 22, 0.96) !important;
+      border-top-color: #2b2c25 !important;
+    }
+    html[data-theme="dark"] .bottomnav .navitem {
+      color: #8c8980 !important;
+    }
+    html[data-theme="dark"] .bottomnav .navitem.selected {
+      color: #e0bd75 !important;
+    }
+
+    /* Smooth transitions across elements */
+    body, .app-screen, .top-header, .menu-card-container, .menu-row-item,
+    .order-card, .sheet-card, .account-main-title, .account-main-subtitle,
+    .menu-title-primary, .menu-desc-sub, .menu-icon-circle {
+      transition: background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+
+    /* Small Android Screen Optimization */
+    @media (max-width: 370px) {
+      .theme-toggle {
+        width: 68px;
+        height: 36px;
+      }
+      .knob {
+        width: 26px;
+        height: 26px;
+      }
+      .theme-toggle .icon {
+        width: 26px;
+        height: 26px;
+      }
+      .theme-toggle .icon svg {
+        width: 15px;
+        height: 15px;
+      }
+      html[data-theme="dark"] .knob {
+        transform: translateX(32px);
+      }
+      .account-main-title {
+        font-size: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    /* 4. One Vertical White Card with Seven Rows */
+    .menu-card-container {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #f0f0f3;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+    }
+    .menu-row-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid #f6f6f8;
+      transition: background 0.15s ease;
+      cursor: pointer;
+    }
+    .menu-row-item:last-child {
+      border-bottom: none;
+    }
+    .menu-row-item:hover {
+      background: #fafafc;
+    }
+    .menu-row-left {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .menu-icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fdf8ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .menu-icon-circle.heart-circle {
+      background: #fff5f5;
+    }
+    .menu-title-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+    .menu-item-label {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .menu-item-sub {
+      font-size: 11.5px;
+      color: #6b7280;
+    }
+    .menu-chevron {
+      color: #9ca3af;
+      display: flex;
+      align-items: center;
+    }
+
+    /* 5. Recent Orders Section */
+    .recent-orders-sec {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .recent-orders-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .recent-orders-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111827;
+      letter-spacing: -0.2px;
+    }
+    .view-all-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #b47818;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .view-all-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Three Compact Product Cards */
+    .order-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .compact-order-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #f0f0f3;
+      padding: 12px 14px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .card-left-group {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+      flex: 1;
+    }
+    .product-thumb-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 10px;
+      background: #f4f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid #e8e8ea;
+    }
+    .product-thumb-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #ffffff;
+    }
+    .order-details-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .product-name-heading {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #111827;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .order-meta-id {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    .order-meta-sub {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .card-right-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .badge-dots-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 12px;
+      line-height: 1.1;
+    }
+    .status-chip.delivered {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .status-chip.shipped {
+      background: #e0f2fe;
+      color: #1d4ed8;
+    }
+    .dots-menu-btn {
+      background: transparent;
+      border: none;
+      color: #6b7280;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 0 2px;
+      line-height: 1;
+    }
+    .card-action-btn {
+      background: #0d0e12;
+      color: #ffffff;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      padding: 5px 13px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .card-action-btn:hover {
+      background: #d4af37;
+      color: #000000;
+    }
+
+    /* GlobalBottomNavigation styling handled by stylehub-pages.js */
+
+    /* Modals & Sheets */
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .sheet-card {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      border-radius: 20px 20px 0 0;
+      padding: 22px 18px;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.2s ease-out;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .sheet-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #111827;
+    }
+    .sheet-close {
+      background: #f3f4f6;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      color: #4b5563;
+    }
+    .input-field-group {
+      margin-bottom: 12px;
+    }
+    .input-field-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 5px;
+    }
+    .input-field-group input {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 9px;
+      border: 1px solid #d1d5db;
+      font-size: 13.5px;
+      outline: none;
+    }
+    .input-field-group input:focus {
+      border-color: #c59b27;
+    }
+    .btn-gold-submit {
+      width: 100%;
+      padding: 11px;
+      background: #0d0e12;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* Toast Notification */
+    .app-toast {
+      position: fixed;
+      bottom: 82px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #0d0e12;
+      color: #ffffff;
+      border: 1px solid #d4af37;
+      padding: 9px 18px;
+      border-radius: 24px;
+      font-size: 12.5px;
+      font-weight: 500;
+      z-index: 3000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    .app-toast.active {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-screen">
+    <!-- iOS Status Bar -->
+    <div class="ios-status-bar">
+      <span>9:41</span>
+      <div class="ios-icons">
+        <!-- Signal -->
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor">
+          <rect x="0" y="8" width="2.5" height="4" rx="0.5"/>
+          <rect x="4" y="6" width="2.5" height="6" rx="0.5"/>
+          <rect x="8" y="3" width="2.5" height="9" rx="0.5"/>
+          <rect x="12" y="0" width="2.5" height="12" rx="0.5"/>
+        </svg>
+        <!-- Wifi -->
+        <svg width="15" height="12" viewBox="0 0 16 12" fill="currentColor">
+          <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-3.5-3a5 5 0 0 1 7 0l-1 1a3.6 3.6 0 0 0-5 0l-1-1zm-3-3a9 9 0 0 1 13 0l-1 1a7.6 7.6 0 0 0-11 0l-1-1z"/>
+        </svg>
+        <!-- Battery -->
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="currentColor">
+          <rect x="0" y="0" width="21" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="2" y="2" width="16" height="8" rx="1.5"/>
+          <path d="M23 4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 1. Header -->
+    <header class="topbar">
+      <button class="iconbtn back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="window.handleGlobalBack ? window.handleGlobalBack('index.html') : (window.history.length > 1 ? window.history.back() : window.location.href='index.html')">
+        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+      </button>
+
+      <div class="brand" onclick="window.location.href='index.html'">
+        <div class="brandname">Style<span class="hub">Hub</span></div>
+        <div class="tagline">FASHION FOR EVERY YOU</div>
+      </div>
+
+      <button class="iconbtn" aria-label="Wishlist" onclick="window.styleHubGo ? window.styleHubGo('cart.html?tab=wishlist') : window.location.href='cart.html?tab=wishlist'">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+        <span class="badge" id="wishlist-badge">3</span>
+      </button>
+
+      <button class="iconbtn" aria-label="Shopping bag" onclick="window.styleHubGo ? window.styleHubGo('cart.html') : window.location.href='cart.html'">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="badge" id="headerCount">0</span>
+      </button>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="content-body">
+      <!-- 2. Black Luxury Profile Banner with Gold Accents -->
+      <section class="luxury-profile-card">
+        <div class="banner-gold-glow"></div>
+        <!-- Gold diagonal luminous wave ribbon -->
+        <svg class="banner-gold-lines" viewBox="0 0 380 120" fill="none" preserveAspectRatio="none">
+          <path d="M120 -20 C 220 20, 260 90, 390 40" stroke="url(#goldGrad)" stroke-width="2.2" opacity="0.6"/>
+          <path d="M180 -10 C 260 50, 310 95, 390 100" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.4"/>
+          <path d="M220 -25 C 290 35, 330 65, 390 70" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.3"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#cf9e34" stop-opacity="0.2"/>
+              <stop offset="50%" stop-color="#ffd700" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#997b23" stop-opacity="0.3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div class="profile-banner-content">
+          <div class="profile-left-col">
+            <!-- Circular Grey Avatar with Gold Border -->
+            <div class="avatar-wrapper">
+              <div class="avatar-circle avatar">
+                <!-- Neutral Grey Silhouette Placeholder -->
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="#ffffff" opacity="0.85">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              </div>
+              <!-- Camera Badge -->
+              <button class="avatar-camera-btn" onclick="openProfileModal()" aria-label="Change Avatar">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Profile Info Stack -->
+            <div class="user-info-col profile-meta-stack" id="profileMetaStack">
+              <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+                <a href="login.html?redirect=account.html" class="profile-auth-action-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                  </svg>
+                  <span>Log In / Sign Up</span>
+                </a>
+                <div class="profile-guest-subtext">Sign in to view orders & member perks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit Profile > Button (displayed when logged in) -->
+          <button class="btn-edit-profile-action" id="accEditProfileBtn" onclick="openProfileModal()" style="display:none;">
+            <span>Edit Profile</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. "My Account" Heading and Premium Dark/Light Toggle -->
+      <section class="account-heading-sec">
+        <div class="account-heading-left">
+          <h1 class="account-main-title">My Account</h1>
+          <p class="account-main-subtitle">Manage your profile, orders and preferences</p>
+        </div>
+        <div class="theme-wrap">
+          <button class="theme-toggle" id="themeToggle" type="button" role="switch" aria-checked="false" aria-label="Switch to dark mode" title="Switch theme">
+            <span class="knob" aria-hidden="true"></span>
+            <span class="icon sun" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span>
+            <span class="icon moon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z"/><path d="m17 3 .5 1.5L19 5l-1.5.5L17 7l-.5-1.5L15 5l1.5-.5L17 3Z"/></svg></span>
+          </button>
+          <span class="theme-label" id="themeLabel">LIGHT MODE</span>
+        </div>
+      </section>
+
+      <!-- 4. One Vertical White Card with Seven Rows -->
+      <section class="menu-card-container">
+        <!-- Row 1: My Orders -->
+        <a href="orders.html" class="menu-row-item">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Shopping bag icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">My Orders</span>
+              <span class="menu-item-sub">Track, return or buy again</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+
+        <!-- Row 2: Wishlist -->
+        <a href="cart.html?tab=wishlist" class="menu-row-item">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle heart-circle">
+              <!-- Red heart outline icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Wishlist</span>
+              <span class="menu-item-sub">View and manage your saved items</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+
+        <!-- Row 3: Addresses -->
+        <a href="address.html" class="menu-row-item">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Location pin icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Addresses</span>
+              <span class="menu-item-sub">Manage your delivery addresses</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+
+        <!-- Row 4: Payment Methods -->
+        <div class="menu-row-item" onclick="openPaymentModal()">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Credit card icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Payment Methods</span>
+              <span class="menu-item-sub">Cards, UPI and other options</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+
+        <!-- Row 5: Refer & Earn -->
+        <div class="menu-row-item" onclick="openReferModal()">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Gift box icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"/>
+                <rect x="2" y="7" width="20" height="5"/>
+                <line x1="12" y1="22" x2="12" y2="7"/>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Refer & Earn</span>
+              <span class="menu-item-sub">Invite friends and earn rewards</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+
+        <!-- Row 6: Settings -->
+        <div class="menu-row-item" onclick="openSettingsModal()">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Settings cog icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Settings</span>
+              <span class="menu-item-sub">Account, notifications and preferences</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+
+        <!-- Row 7: Help & Support -->
+        <a href="help.html" class="menu-row-item">
+          <div class="menu-row-left">
+            <div class="menu-icon-circle">
+              <!-- Help question circle icon in warm amber -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b47818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="menu-title-stack">
+              <span class="menu-item-label">Help & Support</span>
+              <span class="menu-item-sub">Get help with orders, returns and more</span>
+            </div>
+          </div>
+          <div class="menu-chevron">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+      </section>
+
+      <!-- 5. Recent Orders with View All -->
+      <section class="recent-orders-sec orders-card" id="orders">
+        <div class="recent-orders-header">
+          <h2 class="recent-orders-title">Recent Orders</h2>
+          <a href="orders.html" class="view-all-link">
+            <span>View All</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Dynamic Order Cards List -->
+        <div class="order-cards-list" id="acc-orders-list">
+          <div class="empty-guest-orders-box">
+            <div class="empty-guest-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c59b27" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            </div>
+            <div class="empty-guest-title">Please Log In</div>
+            <div class="empty-guest-sub">Sign in to view your placed orders, delivery status & live tracking.</div>
+            <a href="login.html?redirect=account.html" class="empty-guest-btn">Log In to View Orders</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Global Shared Navigation Bar (Single, Fixed, Persistent) -->
+  <nav id="GlobalBottomNavigation" class="bottomnav" aria-label="Main navigation">
+    <button type="button" class="navitem" data-action="Home" data-nav-target="index.html">
+      <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v11h-6v-7H9v7H3z"/></svg>
+      <span>Home</span>
+    </button>
+    <button type="button" class="navitem" data-action="Categories" data-nav-target="category.html">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <span>Categories</span>
+    </button>
+    <button type="button" class="navitem" data-action="Wishlist" data-nav-target="index.html#wishlist">
+      <span class="navicon">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+        <span class="navbadge" data-role="wishlist-badge" style="display:none;">0</span>
+      </span>
+      <span>Wishlist</span>
+    </button>
+    <button type="button" class="navitem" data-action="Cart" data-nav-target="cart.html">
+      <span class="navicon">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M1 2h3l2.7 13.1a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 7H5"/></svg>
+        <span class="navbadge stat-number-cart" data-role="cart-badge">2</span>
+      </span>
+      <span>Cart</span>
+    </button>
+    <button type="button" class="navitem selected" data-action="Account" data-nav-target="account.html" aria-current="page">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2z" fill="currentColor" stroke="none"/></svg>
+      <span>Account</span>
+    </button>
+  </nav>
+  <div id="GlobalBottomGesture" class="gesture"></div>
+
+  <!-- Modal 1: Edit Profile -->
+  <div class="sheet-backdrop" id="profileModal" onclick="if(event.target===this)closeProfileModal()">
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <div class="sheet-title">Edit Profile</div>
+        <button class="sheet-close" onclick="closeProfileModal()">✕</button>
+      </div>
+      <form onsubmit="handleSaveProfile(event)">
+        <div class="input-field-group">
+          <label>Full Name</label>
+          <input type="text" id="editNameInput" placeholder="Enter full name" required>
+        </div>
+        <div class="input-field-group">
+          <label>Email Address</label>
+          <input type="email" id="editEmailInput" placeholder="Enter email address" required>
+        </div>
+        <div class="input-field-group">
+          <label>Phone Number</label>
+          <input type="tel" id="editPhoneInput" placeholder="+91 98765 43210">
+        </div>
+        <button type="submit" class="btn-gold-submit">Save Profile Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Payment Methods -->
+  <div class="sheet-backdrop" id="paymentModal" onclick="if(event.target===this)closePaymentModal()">
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <div class="sheet-title">Payment Methods</div>
+        <button class="sheet-close" onclick="closePaymentModal()">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="padding:12px;border:1px solid #e5e7eb;border-radius:10px;display:flex;align-items:center;justify-content:space-between;background:#fafafa;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:34px;height:22px;background:#1e3a8a;border-radius:4px;color:#fff;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;">HDFC</div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#111827;">HDFC Regalia Credit Card</div>
+              <div style="font-size:11px;color:#6b7280;">•••• •••• •••• 4291 • Exp 08/28</div>
+            </div>
+          </div>
+          <span style="font-size:11px;font-weight:600;color:#059669;background:#d1fae5;padding:2px 6px;border-radius:8px;">Default</span>
+        </div>
+        <div style="padding:12px;border:1px solid #e5e7eb;border-radius:10px;display:flex;align-items:center;gap:10px;background:#fafafa;">
+          <div style="width:34px;height:22px;background:#059669;border-radius:4px;color:#fff;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;">UPI</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#111827;">Google Pay / PhonePe</div>
+            <div style="font-size:11px;color:#6b7280;">upi.id@okhdfcbank</div>
+          </div>
+        </div>
+        <button onclick="showToast('Add new card flow opened');closePaymentModal()" class="btn-gold-submit" style="background:#fff;color:#111827;border-color:#d1d5db;">
+          + Add New Payment Method
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Refer & Earn -->
+  <div class="sheet-backdrop" id="referModal" onclick="if(event.target===this)closeReferModal()">
+    <div class="sheet-card" style="text-align:center;">
+      <div class="sheet-header">
+        <div class="sheet-title" style="margin:0 auto;">Refer & Earn ₹250</div>
+        <button class="sheet-close" onclick="closeReferModal()">✕</button>
+      </div>
+      <div style="width:52px;height:52px;border-radius:50%;background:#fdf8ee;color:#b47818;display:flex;align-items:center;justify-content:center;margin:8px auto 14px auto;font-size:24px;">
+        🎁
+      </div>
+      <p style="font-size:13px;color:#4b5563;line-height:1.4;margin-bottom:14px;">
+        Share your VIP referral code with friends. They get <strong>₹250 OFF</strong> on their first order, and you earn <strong>₹250 credit</strong> in your StyleHub wallet!
+      </p>
+      <div style="display:flex;align-items:center;gap:8px;background:#f3f4f6;padding:10px 14px;border-radius:10px;margin-bottom:14px;">
+        <span style="font-family:monospace;font-size:15px;font-weight:700;letter-spacing:1.5px;flex:1;text-align:left;">STYLEHUB250</span>
+        <button onclick="navigator.clipboard?.writeText('STYLEHUB250');showToast('Referral code copied! ✓')" style="background:#0d0e12;color:#d4af37;border:none;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;">
+          Copy Code
+        </button>
+      </div>
+      <button onclick="showToast('Referral link shared! ✓');closeReferModal()" class="btn-gold-submit">
+        Share on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal 4: Settings -->
+  <div class="sheet-backdrop" id="settingsModal" onclick="if(event.target===this)closeSettingsModal()">
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <div class="sheet-title">Account Settings</div>
+        <button class="sheet-close" onclick="closeSettingsModal()">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid #f3f4f6;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#111827;">Order Status Updates</div>
+            <div style="font-size:11px;color:#6b7280;">Instant WhatsApp & SMS notifications</div>
+          </div>
+          <input type="checkbox" checked style="accent-color:#d4af37;transform:scale(1.2);cursor:pointer;">
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid #f3f4f6;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#111827;">Exclusive Drops & Offers</div>
+            <div style="font-size:11px;color:#6b7280;">VIP member early access alerts</div>
+          </div>
+          <input type="checkbox" checked style="accent-color:#d4af37;transform:scale(1.2);cursor:pointer;">
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid #f3f4f6;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#111827;">Currency</div>
+            <div style="font-size:11px;color:#6b7280;">Default display currency</div>
+          </div>
+          <span style="font-size:12.5px;font-weight:600;color:#111827;">₹ INR (India)</span>
+        </div>
+      </div>
+      <button class="logout" onclick="if(window.handleLogout)window.handleLogout();closeSettingsModal();" style="width:100%;margin-top:16px;padding:11px;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;font-size:13px;font-weight:600;color:#dc2626;cursor:pointer;">
+        Sign Out from Account
+      </button>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Live Order Tracking -->
+  <div class="sheet-backdrop" id="trackingModal" onclick="if(event.target===this)closeTrackingModal()">
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <div>
+          <div class="sheet-title" id="trackOrderTitle">Order Tracking</div>
+          <div style="font-size:11.5px;color:#6b7280;margin-top:2px;" id="trackOrderId">#SK12345677</div>
+        </div>
+        <button class="sheet-close" onclick="closeTrackingModal()">✕</button>
+      </div>
+
+      <div style="position:relative;padding-left:24px;margin:18px 0 16px 0;display:flex;flex-direction:column;gap:18px;">
+        <div style="position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:#e5e7eb;"></div>
+        
+        <div style="position:relative;">
+          <div style="position:absolute;left:-24px;top:2px;width:14px;height:14px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px #d1fae5;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;">✓</div>
+          <div style="font-size:12.5px;font-weight:600;color:#111827;">Order Confirmed & Verified</div>
+          <div style="font-size:11px;color:#6b7280;">Payment received via Pre-paid</div>
+        </div>
+
+        <div style="position:relative;">
+          <div style="position:absolute;left:-24px;top:2px;width:14px;height:14px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px #d1fae5;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;">✓</div>
+          <div style="font-size:12.5px;font-weight:600;color:#111827;">Packed at StyleHub Warehouse</div>
+          <div style="font-size:11px;color:#6b7280;">Quality inspected and secured</div>
+        </div>
+
+        <div style="position:relative;">
+          <div style="position:absolute;left:-24px;top:2px;width:14px;height:14px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px #d1fae5;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;">✓</div>
+          <div style="font-size:12.5px;font-weight:600;color:#111827;">In Transit with BlueDart Express</div>
+          <div style="font-size:11px;color:#6b7280;">AWB: BLD8942109IN • Dispatched</div>
+        </div>
+
+        <div style="position:relative;">
+          <div id="trackLastDot" style="position:absolute;left:-24px;top:2px;width:14px;height:14px;border-radius:50%;background:#059669;box-shadow:0 0 0 3px #d1fae5;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;">✓</div>
+          <div style="font-size:12.5px;font-weight:600;color:#111827;" id="trackLastStep">Delivered</div>
+          <div style="font-size:11px;color:#6b7280;" id="trackLastDate">Delivered to recipient with OTP</div>
+        </div>
+      </div>
+
+      <button onclick="closeTrackingModal()" class="btn-gold-submit">
+        Close Tracking
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal 6: Order Overflow Options -->
+  <div class="sheet-backdrop" id="orderMenuModal" onclick="if(event.target===this)closeOrderMenu()">
+    <div class="sheet-card">
+      <div class="sheet-header">
+        <div class="sheet-title" id="orderMenuTitle">Order Options</div>
+        <button class="sheet-close" onclick="closeOrderMenu()">✕</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button onclick="downloadInvoiceStub()" style="width:100%;text-align:left;padding:11px 13px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:13px;font-weight:500;color:#111827;display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Tax Invoice (PDF)
+        </button>
+        <button onclick="showToast('Return window open until 7 days after delivery');closeOrderMenu()" style="width:100%;text-align:left;padding:11px 13px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:13px;font-weight:500;color:#111827;display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Request Exchange or Return
+        </button>
+        <a href="orders.html" style="width:100%;text-align:left;padding:11px 13px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:13px;font-weight:500;color:#111827;display:flex;align-items:center;gap:10px;text-decoration:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View Full Order Details
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="styleHubToast" class="app-toast">
+    <span style="color:#d4af37;">✦</span>
+    <span id="toastMsg">Action completed</span>
+  </div>
+
+  <!-- Interactive JavaScript Controller -->
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('styleHubToast');
+      const text = document.getElementById('toastMsg');
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.classList.add('active');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2600);
+    }
+
+    // Modal Handlers
+    function openProfileModal() {
+      const u = (() => {
+        try { return JSON.parse(localStorage.getItem('xpord_user') || '{}'); } catch { return {}; }
+      })();
+      if (u.name) document.getElementById('editNameInput').value = u.name;
+      if (u.email) document.getElementById('editEmailInput').value = u.email;
+      if (u.phone) document.getElementById('editPhoneInput').value = u.phone;
+      document.getElementById('profileModal').style.display = 'flex';
+    }
+    function closeProfileModal() { document.getElementById('profileModal').style.display = 'none'; }
+
+    function handleSaveProfile(e) {
+      e.preventDefault();
+      const name = document.getElementById('editNameInput').value.trim();
+      const email = document.getElementById('editEmailInput').value.trim();
+      const phone = document.getElementById('editPhoneInput').value.trim();
+      try {
+        const cur = JSON.parse(localStorage.getItem('xpord_user') || '{}');
+        const updated = { ...cur, name, email, phone };
+        localStorage.setItem('xpord_user', JSON.stringify(updated));
+      } catch(err) {}
+      
+      document.querySelectorAll('.profile-name, .user-name-display, .name').forEach(el => el.textContent = name);
+      document.querySelectorAll('.profile-email, .user-email-display, .email').forEach(el => el.textContent = email);
+      closeProfileModal();
+      showToast('Profile updated successfully ✓');
+    }
+
+    function openPaymentModal() { document.getElementById('paymentModal').style.display = 'flex'; }
+    function closePaymentModal() { document.getElementById('paymentModal').style.display = 'none'; }
+
+    function openReferModal() { document.getElementById('referModal').style.display = 'flex'; }
+    function closeReferModal() { document.getElementById('referModal').style.display = 'none'; }
+
+    function openSettingsModal() { document.getElementById('settingsModal').style.display = 'flex'; }
+    function closeSettingsModal() { document.getElementById('settingsModal').style.display = 'none'; }
+
+    function openTrackingModal(orderId, itemTitle, status, date) {
+      document.getElementById('trackOrderTitle').textContent = itemTitle;
+      document.getElementById('trackOrderId').textContent = '#' + orderId;
+      document.getElementById('trackLastStep').textContent = status;
+      document.getElementById('trackLastDate').textContent = date;
+      const dot = document.getElementById('trackLastDot');
+      if (status.toLowerCase().includes('shipped')) {
+        dot.style.background = '#2563eb';
+        dot.style.boxShadow = '0 0 0 3px #bfdbfe';
+        dot.textContent = '✈';
+      } else {
+        dot.style.background = '#059669';
+        dot.style.boxShadow = '0 0 0 3px #d1fae5';
+        dot.textContent = '✓';
+      }
+      document.getElementById('trackingModal').style.display = 'flex';
+    }
+    function closeTrackingModal() { document.getElementById('trackingModal').style.display = 'none'; }
+
+    let currentMenuOrderId = '';
+    let currentMenuTitle = '';
+    function openOrderMenu(orderId, itemTitle) {
+      currentMenuOrderId = orderId;
+      currentMenuTitle = itemTitle;
+      document.getElementById('orderMenuTitle').textContent = itemTitle;
+      document.getElementById('orderMenuModal').style.display = 'flex';
+    }
+    function closeOrderMenu() { document.getElementById('orderMenuModal').style.display = 'none'; }
+
+    function downloadInvoiceStub() {
+      closeOrderMenu();
+      showToast('Downloading Tax Invoice for ' + currentMenuOrderId + '...');
+      setTimeout(() => showToast('Invoice saved to downloads ✓'), 1200);
+    }
+
+    function handleBuyAgain(title, price, img) {
+      try {
+        const u = JSON.parse(localStorage.getItem('xpord_user') || '{}');
+        const cartKey = u.uid ? ('xpord_cart_' + u.uid) : 'xpord_cart';
+        const cart = JSON.parse(localStorage.getItem(cartKey) || '[]');
+        const existing = cart.find(x => x.title === title || x.id === title);
+        if (existing) {
+          existing.quantity = (Number(existing.quantity) || 1) + 1;
+        } else {
+          cart.push({
+            id: 'item_' + Date.now(),
+            title: title,
+            price: price,
+            image: img,
+            quantity: 1,
+            size: 'Standard'
+          });
+        }
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+        const totalItems = cart.reduce((n, x) => n + (Number(x.quantity) || 1), 0);
+        document.querySelectorAll('.stat-number-cart').forEach(b => b.textContent = String(totalItems));
+        showToast(title + ' added to cart ✓');
+        setTimeout(() => { location.href = 'cart.html'; }, 800);
+      } catch (err) {
+        location.href = 'cart.html';
+      }
+    }
+  </script>
+
+  <!-- StyleHub Premium Theme Controller -->
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const label = document.getElementById('themeLabel');
+
+      function syncUI(theme) {
+        const dark = theme === 'dark';
+        root.setAttribute('data-theme', dark ? 'dark' : 'light');
+        root.dataset.theme = dark ? 'dark' : 'light';
+        if (toggle) {
+          toggle.setAttribute('aria-checked', String(dark));
+          toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+          toggle.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        if (label) {
+          label.textContent = dark ? 'DARK MODE' : 'LIGHT MODE';
+        }
+      }
+
+      let initial = 'light';
+      try {
+        initial = localStorage.getItem('stylehub-theme') || 'light';
+      } catch (_) {}
+      syncUI(initial);
+
+      window.addEventListener('stylehub-theme-change', (e) => {
+        if (e.detail && e.detail.theme) {
+          syncUI(e.detail.theme);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Real Firebase & Auth Data Hydration Bridge -->
+  <script type="module" src="./account-backend.js"></script>
+  <!-- Global Shared Navigation & Transition Controller -->
+  <script src="./stylehub-pages.js"></script>
+</body>
+</html>

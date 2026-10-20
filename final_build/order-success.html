@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Placed Successfully | StyleHub</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #0f111a;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ==========================================================================
+       HEADER (RESPONSIVE)
+       ========================================================================== */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f3f7;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #0f111a;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .brand-logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .brand-logo h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .brand-logo span {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #717684;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Desktop Search */
+    .search-box {
+      flex: 1;
+      max-width: 580px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f1f3f7;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid #e5e8ee;
+    }
+    .search-box i {
+      color: #8c92a0;
+      font-size: 14px;
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: #1a1d26;
+      width: 100%;
+    }
+    .search-box input::placeholder {
+      color: #8c92a0;
+    }
+
+    /* Header Icons */
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: #11131c;
+      font-size: 11.5px;
+      font-weight: 600;
+      position: relative;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .action-item i {
+      font-size: 19px;
+    }
+    .mobile-search-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 19px;
+      color: #11131c;
+      cursor: pointer;
+    }
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: 2px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Desktop Secondary Category Nav */
+    .category-nav {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f3f7;
+      display: block;
+    }
+    .cat-nav-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+    .cat-all-dropdown {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f111a;
+      cursor: pointer;
+      border-right: 1px solid #eef0f4;
+      padding-right: 20px;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+    .cat-nav-link {
+      padding: 12px 0;
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    .cat-nav-link:hover {
+      color: #0f111a;
+      font-weight: 600;
+    }
+    .cat-nav-link.deal-tag {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT: ORDER SUCCESS
+       ========================================================================== */
+    .main-content {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* 1. Header Hero Box */
+    .success-hero {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .check-icon-wrap {
+      width: 64px;
+      height: 64px;
+      background: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: #ffffff;
+      font-size: 28px;
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
+      animation: popIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .success-title {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .success-subtitle {
+      font-size: 14px;
+      color: #4b5563;
+      max-width: 620px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+
+    /* Order Id Pill Box */
+    .order-id-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      display: inline-block;
+      padding: 12px 32px;
+      margin-bottom: 24px;
+    }
+    .order-id-text {
+      font-size: 16px;
+      color: #0f111a;
+      font-weight: 600;
+    }
+    .order-id-text strong {
+      color: #16a34a;
+      font-weight: 800;
+    }
+    .order-date-text {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    /* Buttons Row */
+    .success-btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .btn-view-order {
+      background: #11131c;
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .btn-view-order:hover {
+      background: #252835;
+      transform: translateY(-1px);
+    }
+    .btn-continue-shop {
+      background: #ffffff;
+      color: #11131c;
+      border: 1.5px solid #d8dae0;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn-continue-shop:hover {
+      background: #f8fafc;
+      border-color: #11131c;
+    }
+
+    /* 2. Order Details 3-Column Info Card */
+    .order-info-card {
+      background: #ffffff;
+      border: 1px solid #eef0f4;
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+    .info-col {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .info-col:not(:last-child) {
+      border-right: 1px solid #f1f3f7;
+      padding-right: 20px;
+    }
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .info-icon.pin-icon {
+      background: #f1f3f7;
+      color: #0f111a;
+    }
+    .info-icon.card-icon {
+      background: #f1f3f7;
+      color: #0f111a;
+    }
+    .info-body h4 {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 4px;
+    }
+    .info-body .primary-val {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0f111a;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .info-body .sub-note {
+      font-size: 12px;
+      color: #717684;
+      line-height: 1.4;
+    }
+
+    /* 3. Green Notice Banner */
+    .notice-banner {
+      background: #f0fdf4;
+      border: 1px solid #dcfce7;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+    .notice-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: #16a34a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .notice-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #15803d;
+    }
+    .notice-text p {
+      font-size: 12.5px;
+      color: #374151;
+      margin-top: 2px;
+    }
+
+    /* 4. You May Also Like Section */
+    .recommendations-section {
+      margin-top: 10px;
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .section-head h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #0f111a;
+    }
+    .view-all-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .view-all-link:hover {
+      text-decoration: underline;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .product-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid #eef0f4;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+    }
+    .product-img-wrap {
+      width: 100%;
+      height: 190px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f8fafc;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .fav-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #ffffff;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #4b5563;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 12px;
+      transition: color 0.15s ease;
+    }
+    .fav-btn:hover {
+      color: #ef4444;
+    }
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f111a;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .product-price {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 4px;
+    }
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .product-rating i {
+      color: #f59e0b;
+      font-size: 11px;
+    }
+
+    /* ==========================================================================
+       DESKTOP FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #f1f3f7;
+      border-top: 1px solid #e5e8ee;
+      padding: 50px 24px 30px;
+      margin-top: 40px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1.6fr;
+      gap: 36px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .brand-logo h1 {
+      font-size: 22px;
+    }
+    .footer-brand p {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 14px 0 18px;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+    .social-links a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #0f111a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid #e5e8ee;
+      transition: background 0.15s, color 0.15s;
+    }
+    .social-links a:hover {
+      background: #11131c;
+      color: #ffffff;
+    }
+
+    .footer-col h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      text-decoration: none;
+      font-size: 12.5px;
+      color: #4b5563;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover {
+      color: #0f111a;
+      font-weight: 600;
+    }
+
+    .newsletter-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 8px;
+    }
+    .newsletter-desc {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #ffffff;
+      border: 1px solid #d8dae0;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 360px;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 14px;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 12.5px;
+    }
+    .newsletter-form button {
+      background: #11131c;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .newsletter-form button:hover {
+      background: #252835;
+    }
+
+    /* ==========================================================================
+       MOBILE BOTTOM NAVIGATION BAR
+       ========================================================================== */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid #f1f3f7;
+      padding: 8px 16px;
+      z-index: 90;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .mob-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 500;
+      position: relative;
+    }
+    .mob-nav-item i {
+      font-size: 18px;
+    }
+    .mob-nav-item.active {
+      color: #0f111a;
+      font-weight: 700;
+    }
+    .mob-badge {
+      position: absolute;
+      top: -2px;
+      right: 4px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 8.5px;
+      font-weight: 700;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE / TABLET)
+       ========================================================================== */
+    @media (max-width: 868px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      .search-box {
+        display: none;
+      }
+      .category-nav {
+        display: none;
+      }
+      .user-actions .action-item {
+        display: none;
+      }
+      .mobile-search-btn {
+        display: block;
+      }
+      .user-actions .action-item.cart-btn {
+        display: flex;
+      }
+      .site-footer {
+        display: none;
+      }
+      .mobile-bottom-nav {
+        display: flex;
+      }
+
+      .main-content {
+        padding: 24px 16px 85px;
+      }
+
+      .success-title {
+        font-size: 22px;
+      }
+      .success-subtitle {
+        font-size: 12.5px;
+      }
+      .order-id-box {
+        width: 100%;
+        padding: 12px 16px;
+      }
+
+      /* Stack Buttons */
+      .success-btn-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .btn-view-order, .btn-continue-shop {
+        width: 100%;
+        text-align: center;
+        padding: 13px 20px;
+      }
+
+      /* Stack Order Details */
+      .order-info-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 18px 16px;
+      }
+      .info-col:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid #f1f3f7;
+        padding-right: 0;
+        padding-bottom: 16px;
+      }
+
+      /* Products 2 columns or horizontal scroll on small mobile */
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .product-img-wrap {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <button class="mobile-menu-btn" onclick="window.styleHubOpenMenu ? window.styleHubOpenMenu() : window.styleHubGo('menu.html')" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="index.html" class="brand-logo">
+          <h1>StyleHub</h1>
+          <span>MEN'S WEAR</span>
+        </a>
+      </div>
+
+      <!-- Desktop Search Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search for clothes, shoes, accessories...">
+      </div>
+
+      <!-- Header Actions -->
+      <div class="user-actions">
+        <button class="mobile-search-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <div class="action-item">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count">3</span>
+          <span>Wishlist</span>
+        </div>
+        <div class="action-item cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count">0</span>
+          <span>Cart</span>
+        </div>
+        <div class="action-item">
+          <i class="fa-regular fa-user"></i>
+          <span>Account</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Desktop Secondary Category Navigation -->
+  <nav class="category-nav">
+    <div class="cat-nav-inner">
+      <div class="cat-all-dropdown">
+        <i class="fa-solid fa-bars-staggered"></i>
+        <span>All Categories</span>
+        <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
+      </div>
+      <a href="#men" class="cat-nav-link">Men</a>
+      <a href="#new-arrivals" class="cat-nav-link">New Arrivals</a>
+      <a href="#shirts" class="cat-nav-link">Shirts</a>
+      <a href="#t-shirts" class="cat-nav-link">T-Shirts</a>
+      <a href="#jeans" class="cat-nav-link">Jeans</a>
+      <a href="#jackets" class="cat-nav-link">Jackets</a>
+      <a href="#footwear" class="cat-nav-link">Footwear</a>
+      <a href="#accessories" class="cat-nav-link">Accessories</a>
+      <a href="#deals" class="cat-nav-link deal-tag">Deals</a>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    
+    <!-- 1. Hero Confirmation -->
+    <div class="success-hero">
+      <div class="check-icon-wrap">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h2 class="success-title">Order Placed Successfully!</h2>
+      <p class="success-subtitle">
+        Thank you for shopping with StyleHub. Your order has been placed and is being processed. You will receive a confirmation email shortly.
+      </p>
+
+      <!-- Order ID Pill -->
+      <div class="order-id-box">
+        <div class="order-id-text">Order <strong>#SH12345678</strong></div>
+        <div class="order-date-text">Placed on 12 Mar 2024, 10:24 AM</div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="success-btn-row">
+        <a href="orders.html" class="btn-view-order">View Order Details</a>
+        <a href="category.html" class="btn-continue-shop">Continue Shopping</a>
+      </div>
+    </div>
+
+    <!-- 2. Order Information Card -->
+    <div class="order-info-card">
+      <!-- Col 1: Expected Delivery -->
+      <div class="info-col">
+        <div class="info-icon">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div class="info-body">
+          <h4>Expected Delivery</h4>
+          <div class="primary-val">15 Mar 2024 - 18 Mar 2024</div>
+          <div class="sub-note">We'll notify you when your order is shipped.</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Shipping To -->
+      <div class="info-col">
+        <div class="info-icon pin-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="info-body">
+          <h4>Shipping To</h4>
+          <div class="primary-val order-recipient-name">Valued Customer</div>
+          <div class="sub-note order-recipient-address">
+            Default Delivery Address<br>India
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 3: Payment Method -->
+      <div class="info-col">
+        <div class="info-icon card-icon">
+          <i class="fa-regular fa-file-lines"></i>
+        </div>
+        <div class="info-body">
+          <h4>Payment Method</h4>
+          <div class="primary-val">Cash on Delivery</div>
+          <div class="sub-note">Pay when your order is delivered.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Green Notice Banner -->
+    <div class="notice-banner">
+      <div class="notice-badge">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div class="notice-text">
+        <h4>We're happy to have you with us!</h4>
+        <p>You'll receive order updates on rahul@example.com and via SMS.</p>
+      </div>
+    </div>
+
+    <!-- 4. You May Also Like Section -->
+    <section class="recommendations-section">
+      <div class="section-head">
+        <h3>You May Also Like</h3>
+        <a href="#all-products" class="view-all-link">View All &rarr;</a>
+      </div>
+
+      <div class="products-grid">
+        <!-- Item 1: Men's Casual Shirt -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=400&auto=format&fit=crop" alt="Men's Casual Shirt">
+            <button class="fav-btn" aria-label="Favorite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Men's Casual Shirt</div>
+          <div class="product-price">₹1,299</div>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <span>4.5 (1.2K)</span>
+          </div>
+        </div>
+
+        <!-- Item 2: White Sneakers -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=400&auto=format&fit=crop" alt="White Sneakers">
+            <button class="fav-btn" aria-label="Favorite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">White Sneakers</div>
+          <div class="product-price">₹2,499</div>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <span>4.4 (892)</span>
+          </div>
+        </div>
+
+        <!-- Item 3: Men's Hoodie -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=400&auto=format&fit=crop" alt="Men's Hoodie">
+            <button class="fav-btn" aria-label="Favorite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Men's Hoodie</div>
+          <div class="product-price">₹1,799</div>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <span>4.6 (634)</span>
+          </div>
+        </div>
+
+        <!-- Item 4: Slim Fit Jeans -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=400&auto=format&fit=crop" alt="Slim Fit Jeans">
+            <button class="fav-btn" aria-label="Favorite"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Slim Fit Jeans</div>
+          <div class="product-price">₹1,499</div>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <span>4.3 (756)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Desktop Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <!-- Col 1: Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <h1>STARHUB</h1>
+          <span>MEN'S WEAR</span>
+        </a>
+        <p>Premium men's wear for every occasion.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="category.html">Categories</a></li>
+          <li><a href="category.html?cat=deals">Deals</a></li>
+          <li><a href="category.html?cat=new">New Arrivals</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Customer Care -->
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul class="footer-links">
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="returns.html">Returns & Refunds</a></li>
+          <li><a href="orders.html">Track Order</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="help.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Newsletter -->
+      <div class="footer-col">
+        <div class="newsletter-title">Subscribe to our Newsletter</div>
+        <div class="newsletter-desc">Get the latest updates, offers and more.</div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <div class="mob-nav-item" onclick="window.styleHubGo('index.html')">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </div>
+    <div class="mob-nav-item" onclick="window.styleHubGo('category.html')">
+      <i class="fa-solid fa-border-all"></i>
+      <span>Categories</span>
+    </div>
+    <div class="mob-nav-item" onclick="window.styleHubGo('index.html#wishlist')">
+      <i class="fa-regular fa-heart"></i>
+      <span class="mob-badge">3</span>
+      <span>Wishlist</span>
+    </div>
+    <div class="mob-nav-item" onclick="window.styleHubGo('cart.html')">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span>Cart</span>
+    </div>
+    <div class="mob-nav-item" onclick="window.styleHubGo('account.html')">
+      <i class="fa-regular fa-user"></i>
+      <span>Account</span>
+    </div>
+  </nav>
+
+<script src="./stylehub-pages.js"></script>
+</body>
+</html>

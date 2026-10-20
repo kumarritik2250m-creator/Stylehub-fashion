@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>About Us | STARHUB</title>
+  <meta name="description" content="Discover the story, craft, and vision behind STARHUB. Premium apparel operated by Xpord Private Limited.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8f9fb;
+      color: #1e293b;
+      line-height: 1.6;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Top Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 16px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .back-btn:hover { background: #e2e8f0; }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+    .home-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: #2563eb;
+      padding: 8px 12px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    /* Content Card */
+    .content-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .page-subtitle {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 12px;
+    }
+
+    .story-para {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    /* Highlights Grid */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .value-box {
+      background: #f8f9fb;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .value-box h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .value-box p {
+      font-size: 12.5px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Corporate Information Box */
+    .legal-info-box {
+      background: #f1f5f9;
+      border-left: 3px solid #2563eb;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+      font-size: 13px;
+      color: #334155;
+    }
+    .legal-info-box p {
+      margin-bottom: 6px;
+    }
+    .legal-info-box p:last-child {
+      margin-bottom: 0;
+    }
+    .legal-info-box strong {
+      color: #0f172a;
+    }
+
+    /* Action Banner */
+    .action-box {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .action-box h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .action-box p {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .action-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #0f172a;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .action-btn:hover { background: #f1f5f9; }
+
+    /* Footer Navigation */
+    .legal-nav-bar {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 20px;
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      justify-content: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .legal-nav-bar a:hover { color: #2563eb; }
+    .copyright {
+      text-align: center;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-nav">
+    <button class="back-btn sh-circular-back" aria-label="Back" onclick="handleBack()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#171717" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="brand-title">STARHUB</div>
+    <a href="index.html" class="home-link">Home</a>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="content-card">
+      <h1 class="page-title">About Us</h1>
+      <div class="page-subtitle">Contemporary menswear crafted with precision, purpose, and timeless quality.</div>
+
+      <p class="story-para">
+        <strong>STARHUB</strong> is a modern Indian fashion brand dedicated to designing elevated wardrobe essentials, tailored streetwear, and timeless clothing for contemporary lifestyle. We believe that everyday clothing should seamlessly balance exceptional fabric comfort, modern silhouettes, and long-lasting durability.
+      </p>
+
+      <p class="story-para">
+        Rooted in a commitment to craftsmanship, our design house focuses on creating versatile pieces that outlast seasonal fast-fashion cycles. Every garment—from our signature heavyweight t-shirts and tailored casual shirts to comfortable knitwear and bottom wear—is thoughtfully engineered using premium materials and rigorous quality control.
+      </p>
+
+      <!-- Values Grid -->
+      <div class="values-grid">
+        <div class="value-box">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Premium Materials
+          </h4>
+          <p>Carefully selected organic and sustainable cotton blends tailored for breathability and lasting shape retention.</p>
+        </div>
+        <div class="value-box">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Timeless Design
+          </h4>
+          <p>Clean architectural cuts and modern palettes engineered to be mixed, matched, and worn across all occasions.</p>
+        </div>
+        <div class="value-box">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Hassle-Free Shopping
+          </h4>
+          <p>Free doorstep delivery on prepaid orders, easy 7-day returns, and dedicated WhatsApp support.</p>
+        </div>
+      </div>
+
+      <p class="story-para">
+        Customer satisfaction sits at the heart of everything we do. Whether you are ordering a classic piece for daily workwear or an elevated outfit for a weekend getaway, our fulfillment and logistics network ensures seamless delivery directly to your doorstep across India.
+      </p>
+
+      <!-- Corporate Information -->
+      <div class="legal-info-box">
+        <p><strong>Brand Name:</strong> STARHUB</p>
+        <p><strong>Legal Entity:</strong> Xpord Private Limited</p>
+        <p><strong>Headquarters:</strong> Jamua Giridih, Jharkhand - 825412, India</p>
+        <p><strong>Support Email:</strong> kumarritik2010m@gmail.com</p>
+        <p><strong>Customer Care:</strong> +91 7645930314 (Mon - Sat, 10:00 AM to 7:00 PM IST)</p>
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="action-box">
+      <h3>Ready to refresh your style?</h3>
+      <p>Explore our curated collection of contemporary menswear and new arrivals.</p>
+      <a href="category.html" class="action-btn">Explore Collection</a>
+    </div>
+
+    <!-- Connected Legal Navigation -->
+    <nav class="legal-nav-bar">
+      <a href="help.html">Help & Support</a>
+      <a href="about.html" style="font-weight:600; color:#0f172a;">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="returns.html">Returns & Refunds</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+    <div class="copyright">
+      &copy; 2026 STARHUB. Operated by Xpord Private Limited. All rights reserved.
+    </div>
+
+  </main>
+
+  <script>
+    function handleBack() {
+      if (window.history.length > 1 && document.referrer) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+  <script src="stylehub-pages.js"></script>
+</body>
+</html>

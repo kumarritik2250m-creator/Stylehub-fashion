@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StyleHub | Shopping Bag</title>
+<style>
+:root{--ink:#141416;--muted:#777982;--gold:#d4ad59;--gold2:#f0d18a;--line:#ececef;--green:#167947;--red:#d62e45}
+*{box-sizing:border-box}body{margin:0;background:#f6f6f7;color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}.page{max-width:760px;margin:auto;background:#fff;min-height:100vh;padding-bottom:35px}
+.topbar{height:78px;display:flex;align-items:center;gap:14px;padding:0 22px;border-bottom:1px solid #eee;background:#fff}.iconbtn{border:0;background:transparent;color:#111;padding:6px;display:grid;place-items:center;position:relative;border-radius:10px}.iconbtn svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8}.brand{flex:1;min-width:0}.brandname{font-size:29px;line-height:1;font-weight:850;letter-spacing:-1.2px}.hub{color:#bd9140}.tagline{font-size:8px;letter-spacing:3px;color:#57575b;margin-top:6px;white-space:nowrap}.badge{position:absolute;top:0;right:-1px;min-width:19px;height:19px;border-radius:50%;background:#c99b45;color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 4px}
+.hero{margin:14px 22px 16px;padding:0;color:var(--ink);position:relative;background:#fff;border:1px solid #ece5d6;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px #00000006}
+.hero:before,.hero:after{content:none}
+.hero-inner{padding:18px 19px 15px;display:flex;align-items:center;gap:14px}
+.hero-mark{width:46px;height:46px;border-radius:14px;flex:0 0 46px;display:grid;place-items:center;background:linear-gradient(145deg,#f8f0df,#fffaf0);border:1px solid #ebdcb8;color:#9a712b}
+.hero-mark svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7}
+.hero-copy{min-width:0;flex:1}
+.eyebrow{display:flex;align-items:center;gap:7px;color:#9a712b;font-size:10px;font-weight:850;letter-spacing:1.55px;text-transform:uppercase;position:relative;z-index:1}
+.eyebrow svg{display:none}
+h1{font-size:26px;letter-spacing:-.7px;line-height:1.1;margin:6px 0 5px;font-weight:900;position:relative;z-index:1;color:#171719}
+.hero p{margin:0;color:#777982;font-size:12px;line-height:1.45;position:relative;z-index:1}
+.hero-meta{display:flex;align-items:center;gap:8px;padding:11px 18px;background:#fbfaf7;border-top:1px solid #f0eadc;position:relative;z-index:1;flex-wrap:wrap}
+.pill{border:1px solid #e6d3a7;color:#876224;background:#fff;border-radius:30px;padding:6px 10px;font-size:11px;font-weight:800}
+.meta-text{font-size:10px;color:#85868c}
+.content{padding:0 22px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:20px 0 12px}.section-head h2{font-size:16px;margin:0;font-weight:850;letter-spacing:-.2px}.subtext{font-size:11px;color:var(--muted)}.textbtn{border:0;background:transparent;color:#7d602b;font-size:11px;font-weight:800;padding:7px 0}
+.progressbox{border:1px solid #eee4ce;background:#fffdf8;border-radius:14px;padding:13px 14px;margin-bottom:16px}.progressrow{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px}.progressrow strong{color:#946b25}.progressbar{height:6px;border-radius:20px;background:#eee9de;overflow:hidden;margin-top:10px}.progressfill{height:100%;width:78%;border-radius:20px;background:linear-gradient(90deg,#aa7b2c,#f0d18a);transition:width .3s}
+.cart-list{display:grid;gap:11px}.cart-item{display:grid;grid-template-columns:100px minmax(0,1fr);gap:13px;border:1px solid #ececef;border-radius:15px;padding:10px;background:#fff;box-shadow:0 3px 12px #00000005;animation:rise .25s ease both}.product-visual{height:125px;border-radius:11px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#efede7,#ded9ce)}.product-visual.shirt{background:linear-gradient(145deg,#e9e5db,#d7cfbf)}.product-visual.shoe{background:linear-gradient(145deg,#efeeea,#d8d6cf)}.product-visual.watch{background:linear-gradient(145deg,#e9e8e5,#d6d3cd)}.product-visual svg{width:90%;height:90%;filter:drop-shadow(0 6px 5px #00000017)}.item-info{min-width:0;display:flex;flex-direction:column}.item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.category{font-size:9px;text-transform:uppercase;letter-spacing:1.2px;color:#8a8b91;font-weight:800}.item-title{font-size:14px;font-weight:850;line-height:1.25;margin:4px 0 5px}.item-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:#777982;font-size:10px}.swatch{width:9px;height:9px;display:inline-block;border-radius:50%;background:#c8b79a;border:1px solid #aaa}.remove{border:0;background:#f7f7f8;color:#7a7a80;width:29px;height:29px;border-radius:9px;display:grid;place-items:center;flex-shrink:0}.remove svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}.item-bottom{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding-top:11px}.priceblock{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.price{font-size:16px;font-weight:900}.oldprice{font-size:10px;color:#92939a;text-decoration:line-through}.discount{font-size:9px;color:var(--green);font-weight:850}.qty{display:flex;align-items:center;border:1px solid #e5e5e8;border-radius:9px;overflow:hidden;height:31px;flex-shrink:0}.qty button{height:30px;width:29px;border:0;background:#fafafa;font-size:17px;color:#333}.qty span{width:25px;text-align:center;font-size:12px;font-weight:800}
+.coupon{border:1px solid #ececef;border-radius:14px;padding:14px;margin-top:16px}.coupon-head{display:flex;align-items:center;gap:9px}.coupon-icon{width:34px;height:34px;border-radius:10px;background:#f7f0df;color:#956c28;display:grid;place-items:center}.coupon-icon svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8}.coupon-title{font-size:13px;font-weight:850}.coupon-sub{font-size:10px;color:#777982;margin-top:3px}.coupon-entry{display:flex;gap:8px;margin-top:12px}.coupon-entry input{min-width:0;flex:1;border:1px dashed #d8d8dd;border-radius:10px;padding:11px 12px;font-size:12px;outline:0;text-transform:uppercase}.apply{border:1px solid #171717;border-radius:10px;background:#101010;color:#f0d18a;padding:0 15px;font-size:11px;font-weight:850}.coupon-msg{font-size:11px;margin-top:8px;color:var(--green);display:none}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.benefit{border:1px solid #efeff1;border-radius:12px;padding:11px 7px;text-align:center}.benefit svg{width:20px;height:20px;stroke:#a67d35;fill:none;stroke-width:1.7;margin-bottom:5px}.benefit strong{display:block;font-size:10px}.benefit span{display:block;font-size:9px;color:#7d7e84;margin-top:3px}
+.summary{border:1px solid #e9e9ec;border-radius:16px;padding:16px;margin-top:18px;background:#fff;box-shadow:0 5px 18px #00000005}.summary h2{font-size:17px;margin:0 0 14px;font-weight:900}.sumline{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#65666d;margin:11px 0}.sumline strong{color:#202024;font-weight:800}.sumline.savings strong{color:var(--green)}.sumline.delivery strong{color:var(--green)}.divider{height:1px;background:#eeeef0;margin:13px 0}.total{display:flex;justify-content:space-between;align-items:center;gap:12px}.total span{font-size:13px;font-weight:800}.total strong{font-size:23px;font-weight:950;letter-spacing:-.5px}.taxnote{font-size:10px;color:#85868c;margin-top:4px}.checkout{width:100%;border:0;border-radius:12px;margin-top:15px;padding:15px 14px;background:linear-gradient(105deg,#171615,#070708);color:#f2d58c;font-size:13px;font-weight:900;letter-spacing:.2px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 7px 15px #00000018;transition:transform .18s,box-shadow .18s}.checkout:active{transform:scale(.985);box-shadow:0 3px 8px #0002}.checkout svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}.secure{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10px;color:#777982;margin-top:11px}.secure svg{width:14px;height:14px;stroke:#168347;fill:none;stroke-width:1.8}
+.empty{display:none;text-align:center;padding:36px 22px 42px;margin:0 22px;border:1px dashed #dedee2;border-radius:18px;background:#fbfbfc}.empty-icon{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background:#f7f0df;color:#956c28}.empty-icon svg{width:32px;height:32px;stroke:currentColor;fill:none;stroke-width:1.7}.empty h2{font-size:20px;margin:0 0 7px}.empty p{font-size:12px;color:var(--muted);margin:0 auto 17px;max-width:290px;line-height:1.55}.browse{border:0;background:#09090a;color:#f1d58d;border-radius:11px;padding:12px 18px;font-weight:850;font-size:12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#171717;color:#fff;padding:12px 17px;border-radius:12px;font-size:12px;box-shadow:0 8px 24px #0002;z-index:30;display:none;max-width:90%;text-align:center}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:650px){.layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.8fr);gap:20px;align-items:start}.layout>.summarycol{position:sticky;top:18px}.summary{margin-top:0}.benefits{grid-template-columns:1fr}.benefit{display:flex;align-items:center;gap:10px;text-align:left;padding:10px 12px}.benefit svg{margin:0}.benefit strong{display:inline}.benefit span{margin:0 0 0 auto}.cart-item{grid-template-columns:110px minmax(0,1fr)}}
+@media(max-width:600px){.hero{margin:12px 14px 14px}.hero-inner{padding:15px 14px 13px;gap:11px}.hero-mark{width:41px;height:41px;flex-basis:41px;border-radius:12px}.hero-mark svg{width:21px;height:21px}.hero h1{font-size:23px}.hero p{font-size:11px}.hero-meta{padding:9px 14px}.topbar{height:72px;padding:0 15px;gap:9px}.brandname{font-size:27px}.tagline{font-size:7px;letter-spacing:2px}.hero{margin:13px 14px 15px;padding:19px 17px}.hero h1{font-size:28px}.content{padding:0 14px}.cart-item{grid-template-columns:92px minmax(0,1fr);gap:10px;padding:8px}.product-visual{height:119px}.item-title{font-size:13px}.price{font-size:15px}.qty button{width:26px}.qty span{width:22px}.empty{margin:0 14px}.summary{padding:14px}.benefits{gap:6px}.benefit{padding:10px 4px}.benefit strong{font-size:9px}.benefit span{font-size:8px}}
+@media(max-width:370px){.cart-item{grid-template-columns:82px minmax(0,1fr)}.product-visual{height:112px}.item-meta{font-size:9px}.item-title{font-size:12px}.oldprice{font-size:9px}.coupon-entry input{padding:10px}.apply{padding:0 11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* STYLEHUB PREMIUM LUXE REFINEMENT */
+:root{
+ --ink:#171613;--muted:#77736b;--gold:#b9934d;--gold2:#ead5a0;
+ --line:#e9e2d5;--green:#176b46;--red:#b83a42;
+}
+body{
+ background:#f3f0e9;
+ background-image:radial-gradient(ellipse at 12% 0%,rgba(213,190,143,.18),transparent 36%);
+ color:#1c1a16;
+ letter-spacing:.005em;
+}
+.page{
+ max-width:1120px;
+ box-shadow:0 18px 70px rgba(40,31,15,.07);
+ border-left:1px solid rgba(185,147,77,.13);
+ border-right:1px solid rgba(185,147,77,.13);
+}
+.topbar{
+ height:82px;padding:0 30px;border-bottom:1px solid #e8e1d4;
+ background:rgba(255,255,255,.96);
+}
+.brandname{font-size:30px;letter-spacing:-1.4px}
+.hub{color:#ad8439}
+.tagline{color:#8d8068;letter-spacing:3.1px}
+.iconbtn{transition:background .2s,transform .2s;border-radius:50%;width:40px;height:40px}
+.iconbtn:hover{background:#f7f1e5;transform:translateY(-1px)}
+.badge{background:linear-gradient(135deg,#c7a45d,#98702c);box-shadow:0 2px 6px #b9934d40}
+.hero{
+ margin:24px 30px 22px;border:1px solid #e8dcc2;border-radius:20px;
+ background:linear-gradient(112deg,#fff 0%,#fffdf8 65%,#f8f0df 100%);
+ box-shadow:0 12px 28px rgba(63,46,14,.055);
+}
+.hero-inner{padding:24px 25px 21px;gap:17px}
+.hero-mark{
+ width:54px;height:54px;flex-basis:54px;border-radius:17px;
+ background:linear-gradient(145deg,#f8efd9,#fff);
+ border:1px solid #e4d1a6;color:#9d762f;
+ box-shadow:inset 0 1px #fff,0 5px 12px #a7833b12;
+}
+.eyebrow{font-size:10px;letter-spacing:2px;color:#99722e}
+h1{font-size:30px;letter-spacing:-1px}
+.hero p{font-size:13px}
+.hero-meta{padding:12px 25px;background:rgba(249,245,235,.78);border-top-color:#eee4cf}
+.pill{background:#fffaf0;border-color:#e2cfaa;color:#876324}
+.content{padding:0 30px 28px}
+.progressbox{
+ border:1px solid #e8dcc3;background:linear-gradient(110deg,#fffdf8,#fbf6e9);
+ border-radius:15px;padding:15px 17px;box-shadow:0 4px 14px #6c4e1710;
+}
+.progressrow{font-size:12px}.progressbar{height:7px;background:#eee6d5}
+.progressfill{background:linear-gradient(90deg,#98702d,#d8b76d,#f0dfb4)}
+.section-head{margin:23px 0 14px}
+.section-head h2{font-size:17px;letter-spacing:-.35px}
+.textbtn{color:#98702d;transition:color .2s}
+.textbtn:hover{color:#171613}
+.cart-list{gap:13px}
+.cart-item{
+ grid-template-columns:118px minmax(0,1fr);gap:15px;padding:12px;
+ border:1px solid #e9e4da;border-radius:17px;
+ box-shadow:0 5px 18px rgba(30,24,12,.035);
+ transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.cart-item:hover{transform:translateY(-2px);border-color:#d9c69f;box-shadow:0 10px 24px rgba(60,43,10,.07)}
+.product-visual{height:138px;border-radius:13px;background:linear-gradient(145deg,#f0ede5,#ded7c8)}
+.product-visual.shirt{background:linear-gradient(145deg,#f1ece0,#d9ccb3)}
+.product-visual.shoe{background:linear-gradient(145deg,#f3f1eb,#dedbd2)}
+.product-visual.watch{background:linear-gradient(145deg,#f0eee8,#d8d2c4)}
+.item-title{font-size:15px;letter-spacing:-.2px}
+.category{color:#9a8a6d;letter-spacing:1.45px}
+.item-meta{font-size:11px}
+.remove{background:#f8f6f1;border:1px solid #eee8dc;transition:background .2s,color .2s}
+.remove:hover{background:#f8e8e5;color:#b83a42}
+.price{font-size:17px;letter-spacing:-.35px}
+.oldprice{font-size:11px}
+.discount{font-size:10px}
+.qty{border-color:#e2daca;border-radius:10px;background:#fff;box-shadow:0 2px 5px #00000004}
+.qty button{background:#faf8f3;transition:background .15s}
+.qty button:hover{background:#f0e5cc}
+.qty span{font-variant-numeric:tabular-nums}
+.coupon{
+ border:1px solid #e7dfd1;border-radius:16px;padding:16px;
+ background:linear-gradient(130deg,#fff,#fdfbf6);
+ box-shadow:0 4px 14px rgba(30,24,12,.025);
+}
+.coupon-icon{background:linear-gradient(145deg,#f8efd9,#fff9eb);color:#99722e;border:1px solid #eee0bf}
+.coupon-title{font-size:14px}
+.coupon-sub{font-size:11px}
+.coupon-entry input{border:1px dashed #d8c8a7;background:#fffdf8;transition:border-color .2s,box-shadow .2s}
+.coupon-entry input:focus{border-color:#b9934d;box-shadow:0 0 0 3px #b9934d1c}
+.apply{background:linear-gradient(110deg,#201e19,#090909);border:1px solid #201e19;border-radius:10px;transition:transform .18s,box-shadow .18s}
+.apply:hover{box-shadow:0 5px 12px #0002;transform:translateY(-1px)}
+.benefit{border-color:#eae5dc;background:#fffefa;transition:border-color .2s,transform .2s}
+.benefit:hover{border-color:#d9c69f;transform:translateY(-1px)}
+.benefit svg{stroke:#a7833e}
+.summary{
+ border:1px solid #e5dbc8;border-radius:19px;padding:20px;
+ background:linear-gradient(150deg,#fff 0%,#fff 72%,#fdf8ed 100%);
+ box-shadow:0 10px 28px rgba(43,32,10,.06);
+}
+.summary h2{font-size:19px;letter-spacing:-.45px}
+.sumline{font-size:13px}
+.total strong{font-size:26px;letter-spacing:-.8px}
+.checkout{
+ border:1px solid #27231b;border-radius:13px;
+ background:linear-gradient(110deg,#25231f 0%,#090909 78%);
+ color:#efd79f;padding:16px 14px;
+ box-shadow:0 8px 20px rgba(20,17,10,.19);
+ transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.checkout:hover{transform:translateY(-2px);box-shadow:0 12px 25px #0002;filter:brightness(1.08)}
+.secure{color:#77736b}
+.empty{border-color:#ded2b8;background:linear-gradient(145deg,#fffdf8,#f8f3e8)}
+.empty-icon{background:linear-gradient(145deg,#f5e8c9,#fffaf0);color:#99722e}
+.browse{background:linear-gradient(110deg,#25231f,#090909);color:#efd79f;transition:transform .2s}
+.browse:hover{transform:translateY(-1px)}
+.toast{background:#211f1a;border:1px solid #5c4a2a;box-shadow:0 12px 32px #0003}
+@media(min-width:650px){
+ .layout{grid-template-columns:minmax(0,1.35fr) minmax(285px,.75fr);gap:26px}
+ .summarycol{top:22px}
+ .benefit{border-radius:13px}
+}
+@media(max-width:600px){
+ .topbar{height:72px;padding:0 15px}
+ .hero{margin:14px 14px 16px;border-radius:17px}
+ .hero-inner{padding:17px 15px 14px}
+ .hero-mark{width:43px;height:43px;flex-basis:43px;border-radius:13px}
+ .hero h1{font-size:25px}
+ .content{padding:0 14px 22px}
+ .cart-item{grid-template-columns:94px minmax(0,1fr);gap:11px;padding:9px;border-radius:15px}
+ .product-visual{height:121px}
+ .item-title{font-size:13px}
+ .summary{border-radius:16px;padding:16px}
+}
+@media(max-width:370px){
+ .cart-item{grid-template-columns:82px minmax(0,1fr)}
+ .product-visual{height:112px}
+}
+
+</style></head>
+<body><main class="page">
+<header class="topbar">
+<button class="iconbtn" aria-label="Back" data-toast="Back to shopping"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg></button>
+<div class="brand"><div class="brandname">Style<span class="hub">Hub</span></div><div class="tagline">FASHION FOR EVERY YOU</div></div>
+<button class="iconbtn" aria-label="Wishlist" data-toast="Wishlist"><svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg><span class="badge">4</span></button>
+<button class="iconbtn" aria-label="Shopping bag"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="badge" id="headerCount">3</span></button>
+</header>
+<section class="hero"><div class="hero-inner"><div class="hero-mark"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div><div class="hero-copy"><div class="eyebrow">YOUR SHOPPING BAG</div><h1>Shopping Bag</h1><p>Your selected styles, all in one place.</p></div></div><div class="hero-meta"><span class="pill" id="heroCount">3 items in your bag</span><span class="meta-text">Ready when you are.</span></div></section>
+<div class="content">
+<div class="progressbox"><div class="progressrow"><span id="progressText">You’re close to free delivery!</span><strong id="progressAmount">Add ₹501 more</strong></div><div class="progressbar"><div class="progressfill" id="progressFill"></div></div></div>
+<div class="layout">
+<section class="itemscol"><div class="section-head"><div><h2>Your Items <span id="itemCount" class="subtext">(3)</span></h2><div class="subtext" style="margin-top:4px">Quality picks. Easy checkout.</div></div><button class="textbtn" id="clearAll">Remove all</button></div>
+<div class="cart-list" id="cartList">
+<article class="cart-item" data-id="1" data-price="1499" data-old="1999" data-qty="1" data-name="Classic Oversized Shirt">
+<div class="product-visual shirt"><svg viewBox="0 0 160 180" aria-label="Beige shirt illustration"><path d="M52 26 67 18h26l15 8 26 18-16 27-15-9v91H57V62l-15 9-16-27z" fill="#d0bfa4" stroke="#9d8b70" stroke-width="2" stroke-linejoin="round"/><path d="m67 18 13 20 13-20M80 38v107M73 50h5m-5 12h5m-5 12h5" stroke="#a08b6d" stroke-width="1.5" fill="none"/></svg></div>
+<div class="item-info"><div class="item-top"><div><div class="category">MEN'S FASHION</div><div class="item-title">Classic Oversized Shirt</div><div class="item-meta"><span>Beige</span><span class="swatch"></span><span>Size: M</span></div></div><button class="remove" aria-label="Remove item"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2m-10 0 1 14h10l1-14M10 10v6m4-6v6"/></svg></button></div><div class="item-bottom"><div><div class="priceblock"><span class="price">₹1,499</span><span class="oldprice">₹1,999</span></div><div class="discount">Save ₹500 (25%)</div></div><div class="qty"><button data-qty="-1" aria-label="Decrease quantity">−</button><span>1</span><button data-qty="1" aria-label="Increase quantity">+</button></div></div></div></article>
+<article class="cart-item" data-id="2" data-price="2499" data-old="3499" data-qty="1" data-name="Urban Street Sneakers">
+<div class="product-visual shoe"><svg viewBox="0 0 180 160" aria-label="Sneakers illustration"><path d="M22 91c18-1 31-13 42-37l19 7c8 18 22 29 44 32 18 2 31 8 31 23v12H32C14 128 8 105 22 91Z" fill="#e9e7e0" stroke="#8d8c87" stroke-width="2.5"/><path d="m64 56 18 5 18 25M73 68l20 7M67 77l20 7M29 106h126" stroke="#7c7b76" stroke-width="2" fill="none"/><path d="M23 119h135" stroke="#c5a456" stroke-width="4"/></svg></div>
+<div class="item-info"><div class="item-top"><div><div class="category">FOOTWEAR</div><div class="item-title">Urban Street Sneakers</div><div class="item-meta"><span>Off-white</span><span class="swatch" style="background:#eee"></span><span>Size: 8</span></div></div><button class="remove" aria-label="Remove item"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2m-10 0 1 14h10l1-14M10 10v6m4-6v6"/></svg></button></div><div class="item-bottom"><div><div class="priceblock"><span class="price">₹2,499</span><span class="oldprice">₹3,499</span></div><div class="discount">Save ₹1,000 (29%)</div></div><div class="qty"><button data-qty="-1" aria-label="Decrease quantity">−</button><span>1</span><button data-qty="1" aria-label="Increase quantity">+</button></div></div></div></article>
+<article class="cart-item" data-id="3" data-price="3799" data-old="3799" data-qty="1" data-name="Minimal Gold Watch">
+<div class="product-visual watch"><svg viewBox="0 0 160 180" aria-label="Gold watch illustration"><path d="M61 8h38l7 42H54zM54 130h52l-7 42H61z" fill="#c7a04d" stroke="#8d6a2c" stroke-width="2"/><rect x="39" y="43" width="82" height="91" rx="25" fill="#b9903e" stroke="#795b2a" stroke-width="3"/><circle cx="80" cy="88" r="31" fill="#171716" stroke="#e5c46f" stroke-width="3"/><circle cx="80" cy="88" r="24" fill="#272723" stroke="#c7a04d"/><path d="M80 68v20l14 8M80 59v4m0 50v4m-21-27h4m34 0h4" stroke="#e4c36d" stroke-width="2" fill="none"/><circle cx="80" cy="88" r="3" fill="#e4c36d"/></svg></div>
+<div class="item-info"><div class="item-top"><div><div class="category">ACCESSORIES</div><div class="item-title">Minimal Gold Watch</div><div class="item-meta"><span>Gold / Black</span><span>One size</span></div></div><button class="remove" aria-label="Remove item"><svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2m-10 0 1 14h10l1-14M10 10v6m4-6v6"/></svg></button></div><div class="item-bottom"><div><div class="priceblock"><span class="price">₹3,799</span></div><div class="discount" style="color:#777">Premium collection</div></div><div class="qty"><button data-qty="-1" aria-label="Decrease quantity">−</button><span>1</span><button data-qty="1" aria-label="Increase quantity">+</button></div></div></div></article>
+</div>
+<div class="coupon"><div class="coupon-head"><div class="coupon-icon"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1"/></svg></div><div><div class="coupon-title">Have a promo code?</div><div class="coupon-sub">Unlock a little extra savings at checkout.</div></div></div><div class="coupon-entry"><input id="coupon" placeholder="ENTER CODE (try STYLE10)" aria-label="Promo code"><button class="apply" id="applyCoupon">Apply</button></div><div class="coupon-msg" id="couponMsg"></div></div>
+<div class="benefits"><div class="benefit"><svg viewBox="0 0 24 24"><path d="M3 6h13v12H3zM16 10h3l3 4v4h-6z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="18.5" cy="19" r="1.5"/></svg><div><strong>Free delivery</strong><span>On orders ₹2,000+</span></div></div><div class="benefit"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9a7 7 0 0 1 11.8-2L20 12M4 12l2.7 5a7 7 0 0 0 11.8-2"/></svg><div><strong>Easy returns</strong><span>Within 7 days</span></div></div><div class="benefit"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><strong>Secure checkout</strong><span>Protected payment</span></div></div></div>
+</section>
+<aside class="summarycol"><div class="summary"><h2>Order Summary</h2><div class="sumline"><span>Subtotal (<span id="summaryQty">3</span> items)</span><strong id="subtotal">₹7,797</strong></div><div class="sumline savings"><span>Product savings</span><strong id="savings">−₹1,500</strong></div><div class="sumline"><span>Coupon discount</span><strong id="couponDiscount">−₹0</strong></div><div class="sumline delivery"><span>Delivery</span><strong id="delivery">FREE</strong></div><div class="divider"></div><div class="total"><span>Estimated total</span><strong id="total">₹7,797</strong></div><div class="taxnote">Inclusive of applicable taxes.</div><button class="checkout" id="checkout"><svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg> Secure Checkout <span>→</span></button><div class="secure"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg> Your details are encrypted and protected</div></div></aside>
+</div>
+<div class="empty" id="empty"><div class="empty-icon"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div><h2>Your bag is taking a break</h2><p>Looks like you haven’t added anything yet. Find something that feels like you.</p><button class="browse" id="browse">Continue Shopping</button></div>
+</div></main><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const list=document.getElementById('cartList'),toast=document.getElementById('toast');let timer,couponRate=0,couponApplied=false;
+function notify(s){toast.textContent=s;toast.style.display='block';clearTimeout(timer);timer=setTimeout(()=>toast.style.display='none',2300)}
+function money(n){return '₹'+Math.round(n).toLocaleString('en-IN')}
+function items(){return Array.from(list.querySelectorAll('.cart-item'))}
+function update(){
+ const all=items();let subtotal=0,old=0,qty=0;
+ all.forEach(c=>{const q=+c.dataset.qty;subtotal+=+c.dataset.price*q;old+=+c.dataset.old*q;qty+=q;c.querySelector('.qty span').textContent=q});
+ const savings=Math.max(0,old-subtotal),coupon=couponApplied?Math.round(subtotal*couponRate):0,delivery=subtotal===0||subtotal>=2000?0:99,total=Math.max(0,subtotal-coupon+delivery);
+ document.getElementById('headerCount').textContent=qty;document.getElementById('heroCount').textContent=qty+' item'+(qty===1?'':'s')+' in your bag';document.getElementById('itemCount').textContent='('+qty+')';document.getElementById('summaryQty').textContent=qty;document.getElementById('subtotal').textContent=money(subtotal);document.getElementById('savings').textContent='−'+money(savings);document.getElementById('couponDiscount').textContent='−'+money(coupon);document.getElementById('delivery').textContent=delivery===0?'FREE':money(delivery);document.getElementById('total').textContent=money(total);
+ const target=2000,remaining=Math.max(0,target-subtotal);document.getElementById('progressText').textContent=remaining===0?'You’ve unlocked free delivery!':'You’re close to free delivery!';document.getElementById('progressAmount').textContent=remaining===0?'Unlocked ✓':'Add '+money(remaining)+' more';document.getElementById('progressFill').style.width=Math.min(100,subtotal/target*100)+'%';
+ document.getElementById('empty').style.display=qty===0?'block':'none';document.querySelector('.layout').style.display=qty===0?'none':'grid';document.querySelector('.progressbox').style.display=qty===0?'none':'block';
+}
+list.addEventListener('click',e=>{const card=e.target.closest('.cart-item');if(!card)return;const qbtn=e.target.closest('[data-qty]');if(qbtn){let q=+card.dataset.qty+ +qbtn.dataset.qty;if(q<1){card.remove();notify('Item removed from your bag')}else card.dataset.qty=q;update();return}if(e.target.closest('.remove')){card.remove();update();notify('Item removed from your bag')}});
+document.getElementById('clearAll').addEventListener('click',()=>{list.innerHTML='';couponApplied=false;couponRate=0;update();notify('Your bag is now empty')});
+document.getElementById('applyCoupon').addEventListener('click',()=>{const code=document.getElementById('coupon').value.trim().toUpperCase(),msg=document.getElementById('couponMsg');msg.style.display='block';if(code==='STYLE10'){couponRate=.10;couponApplied=true;msg.style.color='#167947';msg.textContent='Success! STYLE10 applied — 10% off your subtotal.';notify('Promo code applied')}else{couponRate=0;couponApplied=false;msg.style.color='#d62e45';msg.textContent=code?'That code isn’t valid. Try STYLE10.':'Enter a promo code first.';notify('Please check your promo code')}update()});
+document.getElementById('checkout').addEventListener('click',()=>notify('Connect this button to your existing checkout route'));
+document.getElementById('browse').addEventListener('click',()=>notify('Connect this button to your existing shopping route'));
+document.querySelectorAll('[data-toast]').forEach(b=>b.addEventListener('click',()=>notify(b.dataset.toast)));
+update();
+</script></body></html>

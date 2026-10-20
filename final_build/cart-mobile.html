@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5.0,user-scalable=yes">
+  <title>StyleHub | Shopping Bag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --ink: #171613;
+      --muted: #77736b;
+      --gold: #b9934d;
+      --gold2: #ead5a0;
+      --line: #e9e2d5;
+      --green: #176b46;
+      --red: #b83a42;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      margin: 0;
+      background: #f3f0e9;
+      background-image: radial-gradient(ellipse at 12% 0%, rgba(213,190,143,.18), transparent 36%);
+      color: #1c1a16;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      letter-spacing: .005em;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 1120px;
+      margin: auto;
+      background: #ffffff;
+      min-height: 100vh;
+      padding-bottom: 96px; /* Space for global bottom navigation bar */
+      box-shadow: 0 18px 70px rgba(40,31,15,.07);
+      border-left: 1px solid rgba(185,147,77,.13);
+      border-right: 1px solid rgba(185,147,77,.13);
+      position: relative;
+    }
+    .topbar {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 22px;
+      border-bottom: 1px solid #e8e1d4;
+      background: rgba(255,255,255,.96);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .iconbtn {
+      border: 0;
+      background: transparent;
+      color: #111;
+      padding: 6px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .iconbtn:hover {
+      background: #f7f1e5;
+      transform: translateY(-1px);
+    }
+    .iconbtn svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    /* StyleHub Premium Circular Back Button */
+    .sh-circular-back {
+      background: #ffffff !important;
+      border: 1px solid #e2d8c3 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+      color: #1c1a16 !important;
+    }
+    .sh-circular-back:hover {
+      background: #fdfaf4 !important;
+      border-color: #d4ad59 !important;
+    }
+    .brand {
+      flex: 1;
+      min-width: 0;
+      cursor: pointer;
+    }
+    .brandname {
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -1.2px;
+    }
+    .hub {
+      color: #ad8439;
+    }
+    .tagline {
+      font-size: 8px;
+      letter-spacing: 3px;
+      color: #8d8068;
+      margin-top: 5px;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    .badge {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      min-width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c7a45d, #98702c);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      padding: 0 4px;
+      box-shadow: 0 2px 6px #b9934d40;
+    }
+    /* User session bar */
+    .user-bar {
+      background: #fdfaf4;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: #77736b;
+      border-bottom: 1px solid #eee4cf;
+    }
+    .user-bar strong {
+      color: #1c1a16;
+    }
+    .logout-link {
+      color: #b83a42;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.2s;
+    }
+    .logout-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+    /* Hero Banner */
+    .hero {
+      margin: 18px 24px 20px;
+      padding: 0;
+      color: var(--ink);
+      position: relative;
+      background: linear-gradient(112deg, #fff 0%, #fffdf8 65%, #f8f0df 100%);
+      border: 1px solid #e8dcc2;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(63,46,14,.055);
+    }
+    .hero:before, .hero:after { content: none; }
+    .hero-inner {
+      padding: 22px 24px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      flex: 0 0 52px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #f8efd9, #fff);
+      border: 1px solid #e4d1a6;
+      color: #9d762f;
+      box-shadow: inset 0 1px #fff, 0 5px 12px #a7833b12;
+    }
+    .hero-mark svg {
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    .hero-copy {
+      min-width: 0;
+      flex: 1;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #99722e;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 28px;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin: 5px 0 4px;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+      color: #171613;
+    }
+    .hero p {
+      margin: 0;
+      color: #77736b;
+      font-size: 12.5px;
+      line-height: 1.45;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      background: rgba(249,245,235,.78);
+      border-top: 1px solid #eee4cf;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+    .pill {
+      border: 1px solid #e2cfaa;
+      color: #876324;
+      background: #fffaf0;
+      border-radius: 30px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .meta-text {
+      font-size: 10px;
+      color: #85868c;
+    }
+    /* Content */
+    .content {
+      padding: 0 24px 28px;
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 20px 0 14px;
+    }
+    .section-head h2 {
+      font-size: 17px;
+      margin: 0;
+      font-weight: 850;
+      letter-spacing: -.35px;
+    }
+    .subtext {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .textbtn {
+      border: 0;
+      background: transparent;
+      color: #98702d;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 7px 0;
+      cursor: pointer;
+      transition: color .2s;
+    }
+    .textbtn:hover {
+      color: #171613;
+    }
+    /* Progress Box */
+    .progressbox {
+      border: 1px solid #e8dcc3;
+      background: linear-gradient(110deg, #fffdf8, #fbf6e9);
+      border-radius: 15px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px #6c4e1710;
+    }
+    .progressrow {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+    }
+    .progressrow strong {
+      color: #946b25;
+      font-weight: 800;
+    }
+    .progressbar {
+      height: 7px;
+      border-radius: 20px;
+      background: #eee6d5;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progressfill {
+      height: 100%;
+      width: 0%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #98702d, #d8b76d, #f0dfb4);
+      transition: width .35s ease;
+    }
+    /* Cart List & Cards */
+    .cart-list {
+      display: grid;
+      gap: 13px;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 118px minmax(0,1fr);
+      gap: 15px;
+      border: 1px solid #e9e4da;
+      border-radius: 17px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 5px 18px rgba(30,24,12,.035);
+      animation: rise .25s ease both;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .cart-item:hover {
+      transform: translateY(-2px);
+      border-color: #d9c69f;
+      box-shadow: 0 10px 24px rgba(60,43,10,.07);
+    }
+    .product-visual {
+      height: 138px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, #f0ede5, #ded7c8);
+    }
+    .product-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 13px;
+      display: block;
+    }
+    .item-info {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .category {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 1.45px;
+      color: #9a8a6d;
+      font-weight: 800;
+    }
+    .item-title {
+      font-size: 15px;
+      font-weight: 850;
+      line-height: 1.25;
+      margin: 4px 0 5px;
+      letter-spacing: -.2px;
+      color: #171613;
+    }
+    .item-meta {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      color: #77736b;
+      font-size: 11px;
+    }
+    .swatch {
+      width: 9px;
+      height: 9px;
+      display: inline-block;
+      border-radius: 50%;
+      background: #c8b79a;
+      border: 1px solid #aaa;
+    }
+    .remove {
+      border: 1px solid #eee8dc;
+      background: #f8f6f1;
+      color: #7a7a80;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .remove:hover {
+      background: #f8e8e5;
+      color: #b83a42;
+      border-color: #ebd0ce;
+    }
+    .remove svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    .item-bottom {
+      margin-top: auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 11px;
+    }
+    .priceblock {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .price {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -.35px;
+    }
+    .oldprice {
+      font-size: 11px;
+      color: #92939a;
+      text-decoration: line-through;
+    }
+    .discount {
+      font-size: 10px;
+      color: var(--green);
+      font-weight: 850;
+    }
+    .qty {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e2daca;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 32px;
+      flex-shrink: 0;
+      background: #fff;
+      box-shadow: 0 2px 5px #00000004;
+    }
+    .qty button {
+      height: 32px;
+      width: 30px;
+      border: 0;
+      background: #faf8f3;
+      font-size: 17px;
+      color: #333;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background .15s;
+    }
+    .qty button:hover {
+      background: #f0e5cc;
+    }
+    .qty span {
+      width: 27px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    /* Coupon Card */
+    .coupon {
+      border: 1px solid #e7dfd1;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 18px;
+      background: linear-gradient(130deg, #fff, #fdfbf6);
+      box-shadow: 0 4px 14px rgba(30,24,12,.025);
+    }
+    .coupon-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .coupon-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #f8efd9, #fff9eb);
+      color: #99722e;
+      border: 1px solid #eee0bf;
+      display: grid;
+      place-items: center;
+    }
+    .coupon-icon svg {
+      width: 19px;
+      height: 19px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    .coupon-title {
+      font-size: 14px;
+      font-weight: 850;
+    }
+    .coupon-sub {
+      font-size: 11px;
+      color: #77736b;
+      margin-top: 2px;
+    }
+    .coupon-entry {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .coupon-entry input {
+      min-width: 0;
+      flex: 1;
+      border: 1px dashed #d8c8a7;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 12px;
+      outline: 0;
+      text-transform: uppercase;
+      background: #fffdf8;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .coupon-entry input:focus {
+      border-color: #b9934d;
+      box-shadow: 0 0 0 3px #b9934d1c;
+    }
+    .apply {
+      border: 1px solid #201e19;
+      border-radius: 10px;
+      background: linear-gradient(110deg, #201e19, #090909);
+      color: #efd79f;
+      padding: 0 16px;
+      font-size: 11.5px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .apply:hover {
+      box-shadow: 0 5px 12px #0002;
+      transform: translateY(-1px);
+    }
+    .coupon-msg {
+      font-size: 11px;
+      margin-top: 8px;
+      color: var(--green);
+      display: none;
+      font-weight: 600;
+    }
+    /* Benefit Badges */
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .benefit {
+      border: 1px solid #eae5dc;
+      background: #fffefa;
+      border-radius: 12px;
+      padding: 11px 8px;
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+    }
+    .benefit:hover {
+      border-color: #d9c69f;
+      transform: translateY(-1px);
+    }
+    .benefit svg {
+      width: 20px;
+      height: 20px;
+      stroke: #a7833e;
+      fill: none;
+      stroke-width: 1.7;
+      margin-bottom: 5px;
+    }
+    .benefit strong {
+      display: block;
+      font-size: 10px;
+      color: #171613;
+    }
+    .benefit span {
+      display: block;
+      font-size: 9px;
+      color: #7d7e84;
+      margin-top: 3px;
+    }
+    /* Summary Card */
+    .summary {
+      border: 1px solid #e5dbc8;
+      border-radius: 19px;
+      padding: 20px;
+      margin-top: 18px;
+      background: linear-gradient(150deg, #fff 0%, #fff 72%, #fdf8ed 100%);
+      box-shadow: 0 10px 28px rgba(43,32,10,.06);
+    }
+    .summary h2 {
+      font-size: 19px;
+      margin: 0 0 14px;
+      font-weight: 900;
+      letter-spacing: -.45px;
+    }
+    .sumline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: #65666d;
+      margin: 11px 0;
+    }
+    .sumline strong {
+      color: #202024;
+      font-weight: 800;
+    }
+    .sumline.savings strong {
+      color: var(--green);
+    }
+    .sumline.delivery strong {
+      color: var(--green);
+    }
+    .divider {
+      height: 1px;
+      background: #eeeef0;
+      margin: 14px 0;
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .total span {
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .total strong {
+      font-size: 26px;
+      font-weight: 950;
+      letter-spacing: -.8px;
+    }
+    .taxnote {
+      font-size: 10px;
+      color: #85868c;
+      margin-top: 4px;
+    }
+    .checkout {
+      width: 100%;
+      border: 1px solid #27231b;
+      border-radius: 13px;
+      margin-top: 16px;
+      padding: 16px 14px;
+      background: linear-gradient(110deg, #25231f 0%, #090909 78%);
+      color: #efd79f;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(20,17,10,.19);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, filter .2s;
+    }
+    .checkout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px #0002;
+      filter: brightness(1.08);
+    }
+    .checkout:active {
+      transform: scale(.985);
+      box-shadow: 0 3px 8px #0002;
+    }
+    .checkout svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    .secure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 10px;
+      color: #77736b;
+      margin-top: 11px;
+    }
+    .secure svg {
+      width: 14px;
+      height: 14px;
+      stroke: #168347;
+      fill: none;
+      stroke-width: 1.8;
+    }
+    /* Empty State */
+    .empty {
+      text-align: center;
+      padding: 44px 22px 48px;
+      margin: 10px 0 20px;
+      border: 1px dashed #ded2b8;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #fffdf8, #f8f3e8);
+    }
+    .empty-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #f5e8c9, #fffaf0);
+      color: #99722e;
+    }
+    .empty-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+    }
+    .empty h2 {
+      font-size: 20px;
+      margin: 0 0 7px;
+      font-weight: 850;
+    }
+    .empty p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 auto 18px;
+      max-width: 290px;
+      line-height: 1.55;
+    }
+    .browse {
+      border: 0;
+      background: linear-gradient(110deg, #25231f, #090909);
+      color: #efd79f;
+      border-radius: 11px;
+      padding: 13px 22px;
+      font-weight: 850;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .browse:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+    }
+    /* Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      background: #211f1a;
+      border: 1px solid #5c4a2a;
+      box-shadow: 0 12px 32px #0003;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 12px;
+      z-index: 2000;
+      display: none;
+      max-width: 90%;
+      text-align: center;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Responsive Breakpoints */
+    @media(min-width: 650px) {
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(285px, .75fr);
+        gap: 26px;
+        align-items: start;
+      }
+      .layout > .summarycol {
+        position: sticky;
+        top: 22px;
+      }
+      .summary {
+        margin-top: 0;
+      }
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+      .benefit {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+        padding: 11px 14px;
+        border-radius: 13px;
+      }
+      .benefit svg {
+        margin: 0;
+      }
+      .benefit strong {
+        display: inline;
+      }
+      .benefit span {
+        margin: 0 0 0 auto;
+      }
+      .cart-item {
+        grid-template-columns: 118px minmax(0,1fr);
+      }
+    }
+    @media(max-width: 600px) {
+      .topbar {
+        height: 72px;
+        padding: 0 15px;
+      }
+      .hero {
+        margin: 14px 14px 16px;
+        border-radius: 17px;
+      }
+      .hero-inner {
+        padding: 17px 15px 14px;
+      }
+      .hero-mark {
+        width: 43px;
+        height: 43px;
+        flex-basis: 43px;
+        border-radius: 13px;
+      }
+      .hero h1 {
+        font-size: 25px;
+      }
+      .content {
+        padding: 0 14px 22px;
+      }
+      .cart-item {
+        grid-template-columns: 94px minmax(0,1fr);
+        gap: 11px;
+        padding: 9px;
+        border-radius: 15px;
+      }
+      .product-visual {
+        height: 121px;
+      }
+      .item-title {
+        font-size: 13px;
+      }
+      .summary {
+        border-radius: 16px;
+        padding: 16px;
+      }
+    }
+    @media(max-width: 370px) {
+      .cart-item {
+        grid-template-columns: 82px minmax(0,1fr);
+      }
+      .product-visual {
+        height: 112px;
+      }
+      .item-meta {
+        font-size: 9px;
+      }
+      .item-title {
+        font-size: 12px;
+      }
+      .oldprice {
+        font-size: 9px;
+      }
+      .coupon-entry input {
+        padding: 10px;
+      }
+      .apply {
+        padding: 0 11px;
+      }
+    }
+    @media(prefers-reduced-motion: reduce) {
+      *, *:before, *:after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Topbar with Back Button, Brand, Wishlist & Cart Count -->
+    <header class="topbar">
+      <button class="iconbtn back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="window.handleGlobalBack ? window.handleGlobalBack('index.html') : (window.history.length > 1 ? window.history.back() : window.location.href='index.html')">
+        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+      </button>
+
+      <div class="brand" onclick="window.location.href='index.html'">
+        <div class="brandname">Style<span class="hub">Hub</span></div>
+        <div class="tagline">FASHION FOR EVERY YOU</div>
+      </div>
+
+      <button class="iconbtn" aria-label="Wishlist" onclick="window.styleHubGo ? window.styleHubGo('index.html#wishlist') : window.location.href='index.html#wishlist'">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+        <span class="badge" id="wishlist-badge">3</span>
+      </button>
+
+      <button class="iconbtn" aria-label="Shopping bag" style="cursor:default;">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="badge" id="headerCount">0</span>
+      </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-mark">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        </div>
+        <div class="hero-copy">
+          <div class="eyebrow">YOUR SHOPPING BAG</div>
+          <h1 id="cart-heading">Shopping Bag</h1>
+          <p>Your selected styles, all in one place.</p>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <span class="pill" id="heroCount">0 items in your bag</span>
+        <span class="meta-text">Ready when you are.</span>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Free Delivery Progress Bar -->
+      <div class="progressbox" id="progressbox">
+        <div class="progressrow">
+          <span id="progressText">You’re close to free delivery!</span>
+          <strong id="progressAmount">Add ₹501 more</strong>
+        </div>
+        <div class="progressbar">
+          <div class="progressfill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Active Cart Layout -->
+      <div class="layout" id="activeLayout">
+        <section class="itemscol">
+          <div class="section-head">
+            <div>
+              <h2>Your Items <span id="itemCount" class="subtext">(0)</span></h2>
+              <div class="subtext" style="margin-top:4px">Quality picks. Easy checkout.</div>
+            </div>
+            <button class="textbtn" id="clearAll" onclick="window.StyleHubCart ? window.StyleHubCart.clearAll() : clearAll()">Remove all</button>
+          </div>
+
+          <!-- Live Cart Items List -->
+          <div class="cart-list" id="cartList">
+            <!-- Dynamically populated by cart-backend.js -->
+          </div>
+
+          <!-- Coupon Box -->
+          <div class="coupon">
+            <div class="coupon-head">
+              <div class="coupon-icon">
+                <svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1"/></svg>
+              </div>
+              <div>
+                <div class="coupon-title">Have a promo code?</div>
+                <div class="coupon-sub">Unlock a little extra savings at checkout.</div>
+              </div>
+            </div>
+            <div class="coupon-entry">
+              <input id="coupon" placeholder="ENTER CODE (try STYLEHUB20 or STYLE10)" aria-label="Promo code">
+              <button class="apply" id="applyCoupon" onclick="window.StyleHubCart ? window.StyleHubCart.applyCoupon() : applyCoupon()">Apply</button>
+            </div>
+            <div class="coupon-msg" id="couponMsg"></div>
+          </div>
+
+          <!-- 3 Luxe Benefits -->
+          <div class="benefits">
+            <div class="benefit">
+              <svg viewBox="0 0 24 24"><path d="M3 6h13v12H3zM16 10h3l3 4v4h-6z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="18.5" cy="19" r="1.5"/></svg>
+              <div><strong>Free delivery</strong><span>On orders ₹2,000+</span></div>
+            </div>
+            <div class="benefit">
+              <svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9a7 7 0 0 1 11.8-2L20 12M4 12l2.7 5a7 7 0 0 0 11.8-2"/></svg>
+              <div><strong>Easy returns</strong><span>Within 7 days</span></div>
+            </div>
+            <div class="benefit">
+              <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <div><strong>Secure checkout</strong><span>Protected payment</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Order Summary -->
+        <aside class="summarycol">
+          <div class="summary">
+            <h2>Order Summary</h2>
+            <div class="sumline"><span>Subtotal (<span id="summaryQty">0</span> items)</span><strong id="subtotal">₹0</strong></div>
+            <div class="sumline savings" id="savingsLine" style="display:none;"><span>Product savings</span><strong id="savings">−₹0</strong></div>
+            <div class="sumline" id="couponDiscountLine"><span>Coupon discount</span><strong id="couponDiscount">−₹0</strong></div>
+            <div class="sumline delivery"><span>Delivery</span><strong id="delivery">FREE</strong></div>
+            <div class="divider"></div>
+            <div class="total"><span>Estimated total</span><strong id="total">₹0</strong></div>
+            <div class="taxnote">Inclusive of applicable taxes.</div>
+            <button class="checkout" id="checkout" onclick="window.StyleHubCart ? window.StyleHubCart.proceedToCheckout() : proceedToCheckout()">
+              <svg viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+              Secure Checkout <span>→</span>
+            </button>
+            <div class="secure">
+              <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
+              Your details are encrypted and protected
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Empty Cart Fallback -->
+      <div class="empty" id="empty" style="display:none;">
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        </div>
+        <h2>Your bag is taking a break</h2>
+        <p>Looks like you haven’t added anything yet. Find something that feels like you.</p>
+        <button class="browse" id="browse" onclick="window.location.href='index.html'">Continue Shopping</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast-msg" role="status" aria-live="polite"></div>
+
+  <!-- Immediate zero-flicker pre-render from localStorage -->
+  <script>
+    (function initLocalPreRender() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('xpord_cart') || 'null');
+        if (Array.isArray(saved) && saved.length > 0) {
+          const list = document.getElementById('cartList');
+          const totalQty = saved.reduce((s, i) => s + (Number(i.quantity || i.qty) || 1), 0);
+          const subtotal = saved.reduce((s, i) => s + (Number(i.price || 0) * (Number(i.quantity || i.qty) || 1)), 0);
+
+          const hCount = document.getElementById('headerCount');
+          const heroC = document.getElementById('heroCount');
+          const itemC = document.getElementById('itemCount');
+          const sumQ = document.getElementById('summaryQty');
+          const subEl = document.getElementById('subtotal');
+          const totEl = document.getElementById('total');
+
+          if (hCount) hCount.textContent = totalQty;
+          if (heroC) heroC.textContent = totalQty + ' item' + (totalQty === 1 ? '' : 's') + ' in your bag';
+          if (itemC) itemC.textContent = '(' + totalQty + ')';
+          if (sumQ) sumQ.textContent = totalQty;
+          if (subEl) subEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
+          if (totEl) totEl.textContent = '₹' + (subtotal >= 2000 ? subtotal : subtotal + 99).toLocaleString('en-IN');
+
+          const progT = document.getElementById('progressText');
+          const progA = document.getElementById('progressAmount');
+          const progF = document.getElementById('progressFill');
+          if (subtotal >= 2000) {
+            if (progT) progT.textContent = 'You’ve unlocked free delivery!';
+            if (progA) progA.textContent = 'Unlocked ✓';
+            if (progF) progF.style.width = '100%';
+          } else {
+            if (progT) progT.textContent = 'You’re close to free delivery!';
+            if (progA) progA.textContent = 'Add ₹' + (2000 - subtotal).toLocaleString('en-IN') + ' more';
+            if (progF) progF.style.width = Math.min(100, Math.round((subtotal / 2000) * 100)) + '%';
+          }
+
+          if (list) {
+            list.innerHTML = saved.map(i => {
+              const p = Number(i.price || 999);
+              const op = Math.round(p * 1.25);
+              const q = Number(i.quantity || i.qty || 1);
+              const img = i.image || 'assets/shirt.jpg';
+              const title = i.title || "Men's Apparel";
+              const specs = i.specs || 'Size: M';
+              return `
+                <article class="cart-item" data-id="${i.id}">
+                  <div class="product-visual">
+                    <img src="${img}" alt="${title}" onerror="this.src='assets/shirt.jpg'" />
+                  </div>
+                  <div class="item-info">
+                    <div class="item-top">
+                      <div>
+                        <div class="category">MEN'S FASHION</div>
+                        <div class="item-title">${title}</div>
+                        <div class="item-meta"><span>${specs}</span><span class="swatch"></span></div>
+                      </div>
+                      <button class="remove" aria-label="Remove item" onclick="window.StyleHubCart ? window.StyleHubCart.removeItem('${i.id}') : null">
+                        <svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2m-10 0 1 14h10l1-14M10 10v6m4-6v6"/></svg>
+                      </button>
+                    </div>
+                    <div class="item-bottom">
+                      <div>
+                        <div class="priceblock">
+                          <span class="price">₹${p.toLocaleString('en-IN')}</span>
+                          <span class="oldprice">₹${op.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="discount">Save ₹${(op - p).toLocaleString('en-IN')} (20%)</div>
+                      </div>
+                      <div class="qty">
+                        <button onclick="window.StyleHubCart ? window.StyleHubCart.changeQty('${i.id}', -1) : null" aria-label="Decrease quantity">−</button>
+                        <span>${q}</span>
+                        <button onclick="window.StyleHubCart ? window.StyleHubCart.changeQty('${i.id}', 1) : null" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join('');
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Real Firebase Firestore Cart Engine -->
+  <script type="module" src="./cart-backend.js"></script>
+  <!-- Global Navigation & Router -->
+  <script src="./stylehub-pages.js"></script>
+</body>
+</html>

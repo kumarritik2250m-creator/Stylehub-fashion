@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Help & Support | STARHUB</title>
+  <meta name="description" content="STARHUB Help & Support Desk. FAQs, order tracking, returns, shipping guidelines, and customer care.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8f9fb;
+      color: #1e293b;
+      line-height: 1.6;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    /* Top Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 16px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0f172a;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .back-btn:hover { background: #e2e8f0; }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #0f172a;
+      text-transform: uppercase;
+    }
+    .home-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: #2563eb;
+      padding: 8px 12px;
+    }
+
+    /* Hero Section */
+    .hero-box {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    .hero-box h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero-box p {
+      font-size: 13px;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 16px;
+    }
+    .search-box {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      height: 44px;
+      padding: 0 16px 0 42px;
+      border-radius: 22px;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-box input::placeholder { color: #64748b; }
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      stroke: #94a3b8;
+    }
+
+    /* Container */
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    /* Quick Action Grid */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 28px;
+      margin-top: -16px;
+    }
+    .quick-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: transform .15s, border-color .15s;
+    }
+    .quick-card:hover {
+      transform: translateY(-2px);
+      border-color: #2563eb;
+    }
+    .quick-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #eff6ff;
+      color: #2563eb;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .quick-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .quick-card span {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    /* Section Header */
+    .section-head {
+      margin-bottom: 14px;
+    }
+    .section-head h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .section-head p {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    /* FAQ List */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-question {
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-arrow {
+      transition: transform .25s;
+      stroke: #64748b;
+      flex-shrink: 0;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 16px 14px;
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.6;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 10px;
+    }
+    .faq-item.active {
+      border-color: #cbd5e1;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg);
+      stroke: #2563eb;
+    }
+
+    /* Direct Contact Card */
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .contact-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+    .contact-card p {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .contact-btn.whatsapp {
+      background: #16a34a;
+      color: #ffffff;
+    }
+    .contact-btn.email {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .contact-btn.phone {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+    }
+    .contact-btn:hover { opacity: 0.9; }
+
+    /* Footer Navigation */
+    .legal-nav-bar {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 20px;
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      justify-content: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .legal-nav-bar a:hover { color: #2563eb; }
+    .copyright {
+      text-align: center;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-nav">
+    <button class="back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="handleBack()">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#171717" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="brand-title">STARHUB</div>
+    <a href="index.html" class="home-link">Home</a>
+  </header>
+
+  <!-- Hero Search -->
+  <section class="hero-box">
+    <h1>Help & Support</h1>
+    <p>How can we help you today? Search common questions or browse our support categories below.</p>
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="faqSearch" placeholder="Search orders, refunds, delivery..." oninput="filterFaq(this.value)">
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Quick Cards -->
+    <div class="quick-grid">
+      <div class="quick-card" onclick="location.href='returns.html'">
+        <div class="quick-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        </div>
+        <h4>Returns</h4>
+        <span>7 days policy</span>
+      </div>
+
+      <div class="quick-card" onclick="location.href='orders.html'">
+        <div class="quick-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h4>Track Orders</h4>
+        <span>Live status</span>
+      </div>
+
+      <div class="quick-card" onclick="location.href='contact.html'">
+        <div class="quick-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h4>Contact Us</h4>
+        <span>Direct support</span>
+      </div>
+
+      <div class="quick-card" onclick="location.href='about.html'">
+        <div class="quick-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        </div>
+        <h4>About Us</h4>
+        <span>Our brand story</span>
+      </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="section-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Quick answers to common questions about your STARHUB shopping experience.</p>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I track my order?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          Once your order is dispatched, you will receive an automated tracking link via SMS and WhatsApp. You can also view real-time updates directly from your <a href="account.html" style="color:#2563eb; font-weight:500;">Account Orders</a> section.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What is the return and exchange window?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          We offer a hassle-free <strong>7-day easy return and exchange policy</strong> from the date of delivery. Garments must be unwashed, unworn, and have their original price tags intact. Doorstep reverse pickup is 100% free across India. Learn more on our <a href="returns.html" style="color:#2563eb; font-weight:500;">Returns & Refunds</a> page.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How long will it take for my order to arrive?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          Orders placed before 2:00 PM IST are dispatched on the same business day. Delivery takes 1-3 business days for major metropolitan areas and 4-7 business days for the rest of India via our premium logistics partners (Bluedart, Delhivery, Xpressbees).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>What payment methods are supported?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          We accept all major payment methods including UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards (Visa, Mastercard, RuPay), Net Banking, and Cash on Delivery (COD). All prepaid transactions are encrypted and secured via PCI-DSS compliant gateways.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>How will I receive my refund?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          For prepaid orders, the refund is automatically credited back to your original payment method within 5-7 business days after item inspection. For Cash on Delivery (COD) orders, our team will disburse the refund to your provided UPI ID or bank account within 3-5 business days.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>Are there any shipping charges?</span>
+          <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-answer">
+          Prepaid orders enjoy 100% Free Shipping nationwide. For Cash on Delivery (COD) orders, a nominal handling and verification fee of ₹49 applies at checkout.
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Reach Card -->
+    <div class="contact-card">
+      <h3>Need to speak with our support desk?</h3>
+      <p>Our dedicated support team is available Monday to Saturday, 10:00 AM to 7:00 PM IST to assist you.</p>
+      <div class="contact-buttons">
+        <a href="https://wa.me/917645930314?text=Hello%20STARHUB%20Support" target="_blank" rel="noopener" class="contact-btn whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.53c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.34-.76-1.84-.2-.49-.4-.42-.56-.43h-.47c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6-.01.49-.2 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.05-.12-.22-.19-.47-.32"/></svg>
+          <span>WhatsApp Chat</span>
+        </a>
+        <a href="mailto:kumarritik2010m@gmail.com" class="contact-btn email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Email Support</span>
+        </a>
+        <a href="tel:+917645930314" class="contact-btn phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+91 7645930314</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Connected Legal Navigation -->
+    <nav class="legal-nav-bar">
+      <a href="help.html" style="font-weight:600; color:#0f172a;">Help & Support</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="returns.html">Returns & Refunds</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+    <div class="copyright">
+      &copy; 2026 STARHUB. Operated by Xpord Private Limited. All rights reserved.
+    </div>
+
+  </main>
+
+  <script>
+    function handleBack() {
+      if (window.history.length > 1 && document.referrer) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      item.classList.toggle('active');
+    }
+
+    function filterFaq(query) {
+      const q = (query || '').toLowerCase().trim();
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (!q || text.includes(q)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+  <script src="stylehub-pages.js"></script>
+</body>
+</html>

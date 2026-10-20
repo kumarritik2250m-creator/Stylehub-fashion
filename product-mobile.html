@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>StyleHub | Men's Wear (Mobile)</title>
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('stylehub-theme')||'light')}catch(e){}</script>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      color: #0f111a;
+      line-height: 1.5;
+    }
+
+    .mobile-app {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #ffffff;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       VIEW: HOMEPAGE
+       ========================================================================== */
+    #view-home {
+      padding-bottom: 74px;
+    }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 100;
+      padding: 12px 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #0f111a;
+      font-size: 19px;
+      padding: 6px;
+    }
+
+    .brand-logo {
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .brand-logo h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .brand-logo span {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #717684;
+      letter-spacing: 2.2px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Search Bar */
+    .search-wrapper {
+      padding: 12px 16px 10px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f3f7;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #eaedf2;
+    }
+
+    .search-bar input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: #1a1d26;
+      width: 100%;
+    }
+
+    /* Hero Banner */
+    .hero-container {
+      padding: 0 16px 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #dfd7cc 0%, #cec4b5 100%);
+      border-radius: 16px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-text {
+      width: 58%;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #55524b;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #11131c;
+      margin-bottom: 7px;
+    }
+
+    .hero-desc {
+      font-size: 11px;
+      line-height: 1.35;
+      color: #4b4944;
+      margin-bottom: 12px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #11131c;
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero-img {
+      position: absolute;
+      right: -8px;
+      bottom: -6px;
+      width: 175px;
+      height: 195px;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Sections */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px 12px;
+    }
+
+    .section-head h2 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #11131c;
+    }
+
+    .view-all {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* Categories Horizontal Scroll */
+    .categories-row {
+      display: flex;
+      gap: 14px;
+      padding: 0 16px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .categories-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .cat-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #eef1f6;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e5e8ed;
+    }
+
+    .cat-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #1f222e;
+    }
+
+    /* Products Horizontal Row */
+    .products-row {
+      display: flex;
+      gap: 12px;
+      padding: 0 16px 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .products-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-card {
+      width: 154px;
+      background: #ffffff;
+      border: 1px solid #eef0f4;
+      border-radius: 12px;
+      padding: 10px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-img-wrap {
+      width: 100%;
+      height: 150px;
+      background: #f7f8fa;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-fav-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 12px;
+      color: #555;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .card-fav-btn.active {
+      color: #ef4444;
+    }
+
+    .product-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #11131c;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .product-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #11131c;
+      margin-bottom: 4px;
+    }
+
+    .rating-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .star {
+      color: #f59e0b;
+    }
+
+    .rating-score {
+      font-weight: 600;
+      color: #11131c;
+    }
+
+    .add-cart-btn {
+      background: #11131c;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 7px 0;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    /* Fixed Bottom App Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transform: none;
+      width: 100%;
+      max-width: 480px;
+      height: 60px;
+      background: #ffffff;
+      border-top: 1px solid #eaedf2;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 2147483647;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: #717684;
+      font-size: 10px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .nav-link.active {
+      color: #11131c;
+      font-weight: 700;
+    }
+    .nav-link i {
+      font-size: 18px;
+    }
+
+    /* ==========================================================================
+       VIEW: PRODUCT DETAIL PAGE (PDP) - EXACT AS PER IMAGE 1000114659.png
+       WITH COMPLETE LOGIC, REVIEWS, PINCODE, ACCORDIONS, SIZE GUIDE
+       ========================================================================== */
+    #view-pdp {
+      display: none;
+      padding-bottom: 135px !important;
+    }
+
+    /* PDP Header */
+    .pdp-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 100;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f1f3f7;
+    }
+
+    .pdp-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* PDP Image Gallery */
+    .pdp-gallery-wrap {
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: 1fr 68px;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .pdp-main-img-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #f8fafc;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .pdp-main-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pdp-bestseller-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+
+    .pdp-zoom-btn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #0f111a;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    /* Thumbnails Column */
+    .pdp-thumbs-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pdp-thumb-item {
+      width: 68px;
+      height: 78px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      background: #f8fafc;
+    }
+
+    .pdp-thumb-item.active {
+      border-color: #0f111a;
+    }
+
+    .pdp-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Product Specs Block */
+    .pdp-info-block {
+      padding: 0 16px;
+    }
+
+    .pdp-title-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+
+    .pdp-prod-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #0f111a;
+      line-height: 1.25;
+    }
+
+    .pdp-prod-price {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f111a;
+      white-space: nowrap;
+    }
+
+    .pdp-prod-sub {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .pdp-rating-pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .pdp-rating-star {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f111a;
+    }
+    .pdp-rating-star i {
+      color: #f59e0b;
+    }
+    .pdp-reviews-count {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .pdp-orig-discount {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pdp-mrp {
+      font-size: 13px;
+      color: #9ca3af;
+      text-decoration: line-through;
+    }
+    .pdp-discount-pill {
+      font-size: 11px;
+      font-weight: 700;
+      color: #15803d;
+      background: #dcfce7;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Live Stock Urgency Banner */
+    .pdp-stock-urgency {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-left: 3px solid #f59e0b;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      color: #92400e;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #f59e0b;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    /* Color Selection */
+    .pdp-option-section {
+      margin-bottom: 16px;
+    }
+
+    .pdp-option-header {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f111a;
+      margin-bottom: 10px;
+    }
+
+    .pdp-color-swatches {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .color-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .color-circle.active {
+      box-shadow: 0 0 0 2px #ffffff, 0 0 0 3.5px #0f111a;
+    }
+    .color-circle.swatch-black { background: #111111; }
+    .color-circle.swatch-white { background: #ffffff; border: 1px solid #d1d5db; }
+    .color-circle.swatch-navy { background: #1e3a8a; }
+    .color-circle.swatch-olive { background: #4b5e40; }
+    .color-circle.swatch-grey { background: #9ca3af; }
+
+    /* Size Selection */
+    .pdp-size-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .pdp-size-header-row .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f111a;
+    }
+    .pdp-size-chart-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .pdp-size-pills {
+      display: flex;
+      gap: 8px;
+    }
+
+    .size-btn {
+      flex: 1;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #0f111a;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .size-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    /* PIN Code Delivery Estimator */
+    .pincode-checker-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    .pincode-header {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pincode-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .pincode-input-row input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-family: inherit;
+      outline: none;
+    }
+    .pincode-input-row input:focus {
+      border-color: #0f111a;
+    }
+    .pincode-input-row button {
+      background: #0f111a;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .pincode-result {
+      font-size: 11px;
+      margin-top: 8px;
+      font-weight: 600;
+      display: none;
+    }
+    .pincode-result.success {
+      color: #15803d;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .pincode-result.error {
+      color: #dc2626;
+      display: block;
+    }
+
+    /* Trust / Features 3-Card Box */
+    .pdp-trust-box {
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 12px;
+      padding: 14px 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .pdp-trust-item i {
+      font-size: 18px;
+      color: #0f111a;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .pdp-trust-item h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 2px;
+    }
+    .pdp-trust-item p {
+      font-size: 10px;
+      color: #64748b;
+    }
+
+    /* Accordions: Specs, Story & Care */
+    .pdp-accordion {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      padding: 12px 14px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+    }
+    .accordion-header i.chevron {
+      transition: transform 0.2s ease;
+      font-size: 11px;
+    }
+    .pdp-accordion.open .accordion-header i.chevron {
+      transform: rotate(180deg);
+    }
+    .accordion-body {
+      display: none;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border-top: 1px solid #f1f5f9;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.6;
+    }
+    .pdp-accordion.open .accordion-body {
+      display: block;
+    }
+
+    /* Customer Reviews Section */
+    .pdp-reviews-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .reviews-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .reviews-title-row h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f111a;
+    }
+    .write-rev-btn {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .review-form-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .review-form-card input,
+    .review-form-card textarea,
+    .review-form-card select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .submit-rev-btn {
+      background: #0f111a;
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .review-item {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    .rev-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .rev-author {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f111a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .rev-verified {
+      color: #15803d;
+      font-size: 10px;
+    }
+    .rev-stars {
+      color: #f59e0b;
+      font-size: 11px;
+    }
+    .rev-text {
+      font-size: 11.5px;
+      color: #4b5563;
+      line-height: 1.4;
+      margin-bottom: 3px;
+    }
+    .rev-date {
+      font-size: 10px;
+      color: #94a3b8;
+    }
+
+    /* Fixed Bottom PDP Action Buttons */
+    .pdp-bottom-bar {
+      position: fixed;
+      bottom: 58px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transform: none;
+      width: 100%;
+      max-width: 480px;
+      height: 60px;
+      background: #ffffff;
+      border-top: 1px solid #eaedf2;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      z-index: 1000;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.05);
+    }
+
+    .pdp-btn-cart {
+      flex: 1;
+      height: 48px;
+      border-radius: 10px;
+      border: 1.5px solid #0f111a;
+      background: #ffffff;
+      color: #0f111a;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .pdp-btn-buy {
+      flex: 1;
+      height: 48px;
+      border-radius: 10px;
+      border: 1.5px solid #0f111a;
+      background: #0f111a;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    /* Size Chart Modal */
+    .chart-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .chart-modal-card {
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .chart-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+    .chart-table th, .chart-table td {
+      border: 1px solid #e2e8f0;
+      padding: 8px;
+      text-align: center;
+    }
+    .chart-table th {
+      background: #f8fafc;
+      font-weight: 700;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f111a;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2000;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-app">
+    <div id="toast-msg" class="toast">Notification</div>
+
+    <!-- =====================================================================
+         1. HOMEPAGE VIEW
+         ===================================================================== -->
+    <div id="view-home">
+      <!-- Top Header -->
+      <header class="topbar">
+        <button class="iconbtn back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="window.handleGlobalBack ? window.handleGlobalBack('index.html') : (window.history.length > 1 ? window.history.back() : window.location.href='index.html')">
+          <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+        </button>
+
+        <div class="brand" onclick="window.location.href='index.html'">
+          <div class="brandname">Style<span class="hub">Hub</span></div>
+          <div class="tagline">FASHION FOR EVERY YOU</div>
+        </div>
+
+        <button class="iconbtn" aria-label="Wishlist" onclick="window.styleHubGo ? window.styleHubGo('cart.html?tab=wishlist') : window.location.href='cart.html?tab=wishlist'">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+          <span class="badge" id="wishlist-badge">3</span>
+        </button>
+
+        <button class="iconbtn" aria-label="Shopping bag" onclick="window.styleHubGo ? window.styleHubGo('cart.html') : window.location.href='cart.html'">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="badge" id="headerCount">0</span>
+        </button>
+      </header>
+
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass" style="color:#8c92a0;"></i>
+          <input type="text" placeholder="Search for shirts, jeans, t-shirts..." />
+        </div>
+      </div>
+
+      <!-- Hero Banner -->
+      <div class="hero-container">
+        <div class="hero-card">
+          <div class="hero-text">
+            <span class="hero-tag">MEN'S FASHION</span>
+            <h2 class="hero-title">Upgrade<br>Your Wardrobe</h2>
+            <p class="hero-desc">Premium men's clothing for every occasion.</p>
+            <a href="#" class="hero-btn" onclick="openProductDetail('men-casual-shirt'); return false;">Shop Now &rarr;</a>
+          </div>
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=80" alt="StyleHub Fashion" class="hero-img" />
+        </div>
+      </div>
+
+      <!-- Shop by Category -->
+      <div class="section-head">
+        <h2>Shop by Category</h2>
+        <span class="view-all">View All &gt;</span>
+      </div>
+      <div class="categories-row">
+        <div class="cat-item" onclick="openProductDetail('men-casual-shirt')">
+          <div class="cat-avatar">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=150&auto=format&fit=crop&q=80" alt="Shirts" />
+          </div>
+          <span class="cat-label">Shirts</span>
+        </div>
+        <div class="cat-item" onclick="openProductDetail('polo-t-shirt')">
+          <div class="cat-avatar">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=150&auto=format&fit=crop&q=80" alt="T-Shirts" />
+          </div>
+          <span class="cat-label">T-Shirts</span>
+        </div>
+        <div class="cat-item" onclick="openProductDetail('slim-fit-jeans')">
+          <div class="cat-avatar">
+            <img src="https://images.unsplash.com/photo-1542272604-780c96856592?w=150&auto=format&fit=crop&q=80" alt="Jeans" />
+          </div>
+          <span class="cat-label">Jeans</span>
+        </div>
+        <div class="cat-item">
+          <div class="cat-avatar">
+            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=150&auto=format&fit=crop&q=80" alt="Trousers" />
+          </div>
+          <span class="cat-label">Trousers</span>
+        </div>
+        <div class="cat-item" onclick="openProductDetail('hoodie')">
+          <div class="cat-avatar">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=150&auto=format&fit=crop&q=80" alt="Hoodies" />
+          </div>
+          <span class="cat-label">Hoodies</span>
+        </div>
+      </div>
+
+      <!-- Best Sellers Section -->
+      <div class="section-head">
+        <h2>Best Sellers</h2>
+        <span class="view-all">View All &gt;</span>
+      </div>
+      <div class="products-row">
+        <!-- Card 1: Men's Casual Shirt -->
+        <div class="product-card" onclick="openProductDetail('men-casual-shirt')">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=300&auto=format&fit=crop&q=80" alt="Men's Casual Shirt" />
+            <button class="card-fav-btn" onclick="event.stopPropagation(); toggleWishlistBtn(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-title">Men's Casual Shirt</div>
+          <div class="product-price">₹1,299</div>
+          <div class="rating-wrap">
+            <span class="star">★</span>
+            <span class="rating-score">4.5</span>
+            <span>(1.2K)</span>
+          </div>
+          <button class="add-cart-btn" onclick="event.stopPropagation(); addToCartAction()">Add to Cart</button>
+        </div>
+
+        <!-- Card 2: Slim Fit Jeans -->
+        <div class="product-card" onclick="openProductDetail('slim-fit-jeans')">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&auto=format&fit=crop&q=80" alt="Slim Fit Jeans" />
+            <button class="card-fav-btn" onclick="event.stopPropagation(); toggleWishlistBtn(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-title">Slim Fit Jeans</div>
+          <div class="product-price">₹1,499</div>
+          <div class="rating-wrap">
+            <span class="star">★</span>
+            <span class="rating-score">4.4</span>
+            <span>(892)</span>
+          </div>
+          <button class="add-cart-btn" onclick="event.stopPropagation(); addToCartAction()">Add to Cart</button>
+        </div>
+
+        <!-- Card 3: Polo T-Shirt -->
+        <div class="product-card" onclick="openProductDetail('polo-t-shirt')">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=300&auto=format&fit=crop&q=80" alt="Polo T-Shirt" />
+            <button class="card-fav-btn" onclick="event.stopPropagation(); toggleWishlistBtn(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-title">Polo T-Shirt</div>
+          <div class="product-price">₹999</div>
+          <div class="rating-wrap">
+            <span class="star">★</span>
+            <span class="rating-score">4.3</span>
+            <span>(756)</span>
+          </div>
+          <button class="add-cart-btn" onclick="event.stopPropagation(); addToCartAction()">Add to Cart</button>
+        </div>
+
+        <!-- Card 4: Hoodie -->
+        <div class="product-card" onclick="openProductDetail('hoodie')">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&auto=format&fit=crop&q=80" alt="Hoodie" />
+            <button class="card-fav-btn" onclick="event.stopPropagation(); toggleWishlistBtn(this)">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-title">Hoodie</div>
+          <div class="product-price">₹1,799</div>
+          <div class="rating-wrap">
+            <span class="star">★</span>
+            <span class="rating-score">4.6</span>
+            <span>(634)</span>
+          </div>
+          <button class="add-cart-btn" onclick="event.stopPropagation(); addToCartAction()">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         2. PRODUCT DETAIL PAGE (PDP) - EXACT AS PER IMAGE 1000114659.png
+         ===================================================================== -->
+    <div id="view-pdp">
+      <!-- PDP Header with Back Arrow -->
+      <header class="topbar">
+        <button class="iconbtn back-btn sh-circular-back" id="pdpBackBtn" aria-label="Back" onclick="closeProductDetail()">
+          <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+        </button>
+
+        <div class="brand" onclick="closeProductDetail()">
+          <div class="brandname">Style<span class="hub">Hub</span></div>
+          <div class="tagline">FASHION FOR EVERY YOU</div>
+        </div>
+
+        <button class="iconbtn" aria-label="Wishlist" onclick="toggleWishlistPdp(this)">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+          <span class="badge" id="pdp-wishlist-badge">3</span>
+        </button>
+
+        <button class="iconbtn" aria-label="Shopping bag" onclick="window.styleHubGo ? window.styleHubGo('cart.html') : window.location.href='cart.html'">
+          <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="badge" id="pdp-cart-badge">0</span>
+        </button>
+      </header>
+
+      <!-- Main Photo & Vertical Thumbnails -->
+      <div class="pdp-gallery-wrap">
+        <div class="pdp-main-img-box">
+          <span class="pdp-bestseller-badge">Bestseller</span>
+          <img id="pdp-hero-image" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80" alt="Product Hero" />
+          <button class="pdp-zoom-btn" title="Zoom image">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <!-- 4 Vertical Thumbnails on the Right -->
+        <div class="pdp-thumbs-col">
+          <div class="pdp-thumb-item active" onclick="switchMainImage(this, 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80')">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=150&auto=format&fit=crop&q=80" alt="Front view" />
+          </div>
+          <div class="pdp-thumb-item" onclick="switchMainImage(this, 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80')">
+            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=150&auto=format&fit=crop&q=80" alt="Back view" />
+          </div>
+          <div class="pdp-thumb-item" onclick="switchMainImage(this, 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80')">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=150&auto=format&fit=crop&q=80" alt="Collar detail" />
+          </div>
+          <div class="pdp-thumb-item" onclick="switchMainImage(this, 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80')">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=150&auto=format&fit=crop&q=80" alt="Fabric texture" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info Details -->
+      <div class="pdp-info-block">
+        <div class="pdp-title-price-row">
+          <h2 class="pdp-prod-title" id="pdp-title">Men's Casual Shirt</h2>
+          <div class="pdp-prod-price" id="pdp-price">₹1,299</div>
+        </div>
+
+        <p class="pdp-prod-sub" id="pdp-desc">Stylish and comfortable shirt for everyday wear.</p>
+
+        <div class="pdp-rating-pricing-row">
+          <div class="pdp-rating-star">
+            <i class="fa-solid fa-star"></i>
+            <span id="pdp-rating">4.5</span>
+            <span class="pdp-reviews-count">(1.2K reviews)</span>
+          </div>
+          <div class="pdp-orig-discount">
+            <span class="pdp-mrp" id="pdp-mrp">₹1,999</span>
+            <span class="pdp-discount-pill" id="pdp-discount">35% OFF</span>
+          </div>
+        </div>
+
+        <!-- Live Stock Urgency Banner -->
+        <div class="pdp-stock-urgency">
+          <span class="pulse-dot"></span>
+          <span>High Demand Drop: Only <strong>3 pieces left</strong> in size <span id="urgency-size">M</span>!</span>
+        </div>
+
+        <!-- Color Selection -->
+        <div class="pdp-option-section">
+          <div class="pdp-option-header">
+            Color: <strong id="pdp-selected-color">Black</strong>
+          </div>
+          <div class="pdp-color-swatches">
+            <div class="color-circle swatch-black active" onclick="selectColor(this, 'Black')"></div>
+            <div class="color-circle swatch-white" onclick="selectColor(this, 'White')"></div>
+            <div class="color-circle swatch-navy" onclick="selectColor(this, 'Navy Blue')"></div>
+            <div class="color-circle swatch-olive" onclick="selectColor(this, 'Olive Green')"></div>
+            <div class="color-circle swatch-grey" onclick="selectColor(this, 'Grey')"></div>
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="pdp-option-section">
+          <div class="pdp-size-header-row">
+            <div class="label">Size: <strong id="pdp-selected-size">M</strong></div>
+            <span class="pdp-size-chart-link" onclick="openSizeChartModal()">
+              <i class="fa-solid fa-ruler-combined"></i> Size Chart
+            </span>
+          </div>
+          <div class="pdp-size-pills">
+            <button class="size-btn" onclick="selectSize(this, 'S')">S</button>
+            <button class="size-btn active" onclick="selectSize(this, 'M')">M</button>
+            <button class="size-btn" onclick="selectSize(this, 'L')">L</button>
+            <button class="size-btn" onclick="selectSize(this, 'XL')">XL</button>
+            <button class="size-btn" onclick="selectSize(this, 'XXL')">XXL</button>
+          </div>
+        </div>
+
+        <!-- Pincode Delivery Estimator -->
+        <div class="pincode-checker-box">
+          <div class="pincode-header">
+            <i class="fa-solid fa-truck-fast"></i> Delivery Options &amp; PIN Code
+          </div>
+          <div class="pincode-input-row">
+            <input type="text" id="pincode-input" placeholder="Enter 6-Digit Delivery PIN" maxlength="6" />
+            <button onclick="checkDeliveryPin()">Check</button>
+          </div>
+          <div class="pincode-result" id="pincode-result"></div>
+        </div>
+
+        <!-- 3 Feature Cards Box -->
+        <div class="pdp-trust-box">
+          <div class="pdp-trust-item">
+            <i class="fa-solid fa-truck"></i>
+            <h4>Free Shipping</h4>
+            <p>On all orders</p>
+          </div>
+          <div class="pdp-trust-item">
+            <i class="fa-solid fa-box-open"></i>
+            <h4>Easy Returns</h4>
+            <p>7 days return</p>
+          </div>
+          <div class="pdp-trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h4>Secure Payment</h4>
+            <p>100% secure</p>
+          </div>
+        </div>
+
+        <!-- Accordions: Specs, Story & Care -->
+        <div class="pdp-accordion open">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-shirt" style="color:#cca036; margin-right:6px;"></i> Product Details &amp; Material</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="accordion-body">
+            <p id="pdp-accordion-story" style="margin-bottom:8px;">Upgrade your wardrobe with this stylish men's casual shirt. Crafted from premium cotton, it offers all-day comfort with a modern fit.</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:11.5px;">
+              <div><strong>Material:</strong> 100% Cotton</div>
+              <div><strong>Fit:</strong> Regular Fit</div>
+              <div><strong>Pattern:</strong> Solid</div>
+              <div><strong>Sleeve:</strong> Full Sleeve (rollable)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pdp-accordion">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span><i class="fa-solid fa-hands-bubbles" style="color:#cca036; margin-right:6px;"></i> Wash &amp; Garment Care</span>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </div>
+          <div class="accordion-body">
+            <ul style="padding-left:18px;">
+              <li>Machine wash cold with like colors</li>
+              <li>Use mild detergent; do not bleach</li>
+              <li>Tumble dry low or line dry in shade</li>
+              <li>Warm iron if needed (do not iron over print)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Customer Reviews Section -->
+        <div class="pdp-reviews-box">
+          <div class="reviews-title-row">
+            <h3>Customer Reviews (1.2K)</h3>
+            <button class="write-rev-btn" onclick="toggleReviewForm()">+ Write a Review</button>
+          </div>
+
+          <!-- Write Review Form -->
+          <div class="review-form-card" id="review-form-card">
+            <div style="font-weight:700; font-size:12px; margin-bottom:6px;">Share your experience:</div>
+            <select id="new-rev-rating">
+              <option value="5">★★★★★ - 5 Stars (Excellent Quality &amp; Fit)</option>
+              <option value="4">★★★★☆ - 4 Stars (Great Fabric)</option>
+              <option value="3">★★★☆☆ - 3 Stars (Average)</option>
+            </select>
+            <input type="text" id="new-rev-name" placeholder="Your Name" required />
+            <textarea id="new-rev-text" rows="2" placeholder="Tell other buyers about the fabric, sizing and comfort..." required></textarea>
+            <button class="submit-rev-btn" onclick="submitReview()">Post Review</button>
+          </div>
+
+          <!-- Reviews List -->
+          <div id="reviews-list">
+            <div class="review-item">
+              <div class="rev-top">
+                <span class="rev-author">Aryan Sharma <i class="fa-solid fa-circle-check rev-verified" title="Verified Buyer"></i></span>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <p class="rev-text">"Premium quality pure cotton fabric. The fit is on point and doesn't shrink after washing. Highly recommended!"</p>
+              <span class="rev-date">Verified Buyer • 2 days ago</span>
+            </div>
+
+            <div class="review-item">
+              <div class="rev-top">
+                <span class="rev-author">Kunal Verma <i class="fa-solid fa-circle-check rev-verified" title="Verified Buyer"></i></span>
+                <span class="rev-stars">★★★★★</span>
+              </div>
+              <p class="rev-text">"Fast delivery and comfortable feel for daily office wear. The stitch work is top notch."</p>
+              <span class="rev-date">Verified Buyer • 5 days ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed Bottom Action Bar -->
+      <div class="pdp-bottom-bar">
+        <button class="pdp-btn-cart" onclick="addToCartAction()">
+          <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+        </button>
+        <button class="pdp-btn-buy" onclick="buyNowAction()">
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Size Chart Modal -->
+  <div class="chart-modal-backdrop" id="size-chart-modal" onclick="closeSizeChartModal()">
+    <div class="chart-modal-card" onclick="event.stopPropagation()">
+      <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e2e8f0; padding-bottom:8px;">
+        <h3 style="font-size:15px; font-weight:800;">Garment Size Chart (Inches)</h3>
+        <button style="background:none; border:none; font-size:18px; cursor:pointer;" onclick="closeSizeChartModal()">&times;</button>
+      </div>
+      <table class="chart-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest</th>
+            <th>Length</th>
+            <th>Shoulder</th>
+            <th>Fit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>38"</td><td>27"</td><td>17.5"</td><td>Slim</td></tr>
+          <tr><td>M</td><td>40"</td><td>28"</td><td>18.5"</td><td>Regular</td></tr>
+          <tr><td>L</td><td>42"</td><td>29"</td><td>19.5"</td><td>Comfort</td></tr>
+          <tr><td>XL</td><td>44"</td><td>30"</td><td>20.5"</td><td>Relaxed</td></tr>
+          <tr><td>XXL</td><td>46"</td><td>31"</td><td>21.5"</td><td>Loose</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 2;
+
+    const PRODUCT_DATABASE = {
+      'men-casual-shirt': {
+        title: "Men's Casual Shirt",
+        desc: "Stylish and comfortable shirt for everyday wear.",
+        price: "₹1,299",
+        mrp: "₹1,999",
+        discount: "35% OFF",
+        rating: "4.5",
+        reviews: "(1.2K reviews)",
+        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
+        story: "Upgrade your wardrobe with this stylish men's casual shirt. Crafted from premium cotton, it offers all-day comfort with a modern fit.",
+        thumbs: [
+          "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80"
+        ]
+      },
+      'slim-fit-jeans': {
+        title: "Slim Fit Jeans",
+        desc: "Classic stretch denim jeans engineered for effortless modern style.",
+        price: "₹1,499",
+        mrp: "₹2,499",
+        discount: "40% OFF",
+        rating: "4.4",
+        reviews: "(892 reviews)",
+        image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+        story: "Tailored from durable stretch denim twill. Features five pockets and a tapered slim silhouette designed for all-day agility.",
+        thumbs: [
+          "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1542272604-780c96856592?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=600&auto=format&fit=crop&q=80"
+        ]
+      },
+      'polo-t-shirt': {
+        title: "Polo T-Shirt",
+        desc: "Breathable honeycomb cotton polo t-shirt with ribbed collar.",
+        price: "₹999",
+        mrp: "₹1,499",
+        discount: "33% OFF",
+        rating: "4.3",
+        reviews: "(756 reviews)",
+        image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&auto=format&fit=crop&q=80",
+        story: "Classic piqué weave cotton polo with ribbed collar and dual-button placket for athletic smart-casual styling.",
+        thumbs: [
+          "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&auto=format&fit=crop&q=80"
+        ]
+      },
+      'hoodie': {
+        title: "Men's Fleece Hoodie",
+        desc: "Heavyweight 380 GSM thermal fleece hoodie with pouch pocket.",
+        price: "₹1,799",
+        mrp: "₹2,999",
+        discount: "40% OFF",
+        rating: "4.6",
+        reviews: "(634 reviews)",
+        image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&auto=format&fit=crop&q=80",
+        story: "Brushed thermal fleece with drop-shoulder styling, metal-tipped drawstrings, and spacious kangaroo pouch.",
+        thumbs: [
+          "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1548883354-7622d03aca27?w=600&auto=format&fit=crop&q=80"
+        ]
+      }
+    };
+
+    function openProductDetail(productId) {
+      const data = PRODUCT_DATABASE[productId] || PRODUCT_DATABASE['men-casual-shirt'];
+      document.getElementById('pdp-title').textContent = data.title;
+      document.getElementById('pdp-desc').textContent = data.desc;
+      document.getElementById('pdp-price').textContent = data.price;
+      document.getElementById('pdp-mrp').textContent = data.mrp;
+      document.getElementById('pdp-discount').textContent = data.discount;
+      document.getElementById('pdp-rating').textContent = data.rating;
+      document.getElementById('pdp-hero-image').src = data.image;
+      document.getElementById('pdp-accordion-story').textContent = data.story;
+
+      // Update thumbs
+      const thumbBoxes = document.querySelectorAll('.pdp-thumb-item');
+      data.thumbs.forEach((src, idx) => {
+        if (thumbBoxes[idx]) {
+          thumbBoxes[idx].querySelector('img').src = src;
+          thumbBoxes[idx].onclick = function() { switchMainImage(this, src); };
+          if (idx === 0) thumbBoxes[idx].classList.add('active');
+          else thumbBoxes[idx].classList.remove('active');
+        }
+      });
+
+      document.getElementById('view-home').style.display = 'none';
+      document.getElementById('view-pdp').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function closeProductDetail() {
+      document.getElementById('view-pdp').style.display = 'none';
+      document.getElementById('view-home').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function switchMainImage(el, src) {
+      document.getElementById('pdp-hero-image').src = src;
+      document.querySelectorAll('.pdp-thumb-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function selectColor(el, colorName) {
+      document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('pdp-selected-color').textContent = colorName;
+    }
+
+    function selectSize(el, sizeName) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('pdp-selected-size').textContent = sizeName;
+      document.getElementById('urgency-size').textContent = sizeName;
+    }
+
+    function checkDeliveryPin() {
+      const pin = document.getElementById('pincode-input').value.trim();
+      const res = document.getElementById('pincode-result');
+      if (/^[0-9]{6}$/.test(pin)) {
+        const d = new Date();
+        d.setDate(d.getDate() + 3);
+        const dateStr = d.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' });
+        res.className = 'pincode-result success';
+        res.innerHTML = '<i class="fa-solid fa-circle-check"></i> Delivery to PIN ' + pin + ' by <strong>' + dateStr + '</strong> (Free Express)';
+      } else {
+        res.className = 'pincode-result error';
+        res.innerHTML = 'Please enter a valid 6-digit Indian PIN code.';
+      }
+    }
+
+    function toggleAccordion(header) {
+      header.parentElement.classList.toggle('open');
+    }
+
+    function toggleReviewForm() {
+      const form = document.getElementById('review-form-card');
+      form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function submitReview() {
+      const name = document.getElementById('new-rev-name').value.trim();
+      const text = document.getElementById('new-rev-text').value.trim();
+      const rating = document.getElementById('new-rev-rating').value;
+      if (!name || !text) {
+        showToastMsg("Please fill in name and review text");
+        return;
+      }
+      const stars = '★'.repeat(parseInt(rating)) + '☆'.repeat(5 - parseInt(rating));
+      const newRevHtml = `
+        <div class="review-item" style="border-left: 3px solid #10b981;">
+          <div class="rev-top">
+            <span class="rev-author">${name} <i class="fa-solid fa-circle-check rev-verified" title="Verified Buyer"></i></span>
+            <span class="rev-stars">${stars}</span>
+          </div>
+          <p class="rev-text">"${text}"</p>
+          <span class="rev-date">Verified Buyer • Just now</span>
+        </div>
+      `;
+      document.getElementById('reviews-list').insertAdjacentHTML('afterbegin', newRevHtml);
+      document.getElementById('new-rev-name').value = '';
+      document.getElementById('new-rev-text').value = '';
+      document.getElementById('review-form-card').style.display = 'none';
+      showToastMsg("Thank you! Review published.");
+    }
+
+    function openSizeChartModal() { document.getElementById('size-chart-modal').style.display = 'flex'; }
+    function closeSizeChartModal() { document.getElementById('size-chart-modal').style.display = 'none'; }
+
+    function toggleWishlistBtn(btn) {
+      btn.classList.toggle('active');
+      const icon = btn.querySelector('i');
+      if (btn.classList.contains('active')) {
+        icon.className = 'fa-solid fa-heart';
+        showToastMsg("Added to wishlist!");
+      } else {
+        icon.className = 'fa-regular fa-heart';
+        showToastMsg("Removed from wishlist");
+      }
+    }
+
+    function toggleWishlistPdp(btn) {
+      const icon = document.getElementById('pdp-heart-icon');
+      if (icon.classList.contains('fa-regular')) {
+        icon.className = 'fa-solid fa-heart';
+        icon.style.color = '#ef4444';
+        showToastMsg("Added to wishlist!");
+      } else {
+        icon.className = 'fa-regular fa-heart';
+        icon.style.color = '';
+        showToastMsg("Removed from wishlist");
+      }
+    }
+
+    function addToCartAction() {
+      const title = document.querySelector('.product-title')?.textContent?.trim() || "Men's Casual Shirt";
+      const rawPrice = document.querySelector('.current-price')?.textContent?.replace(/[^\d.]/g, '') || "1299";
+      const price = parseFloat(rawPrice) || 1299;
+      const size = document.querySelector('.size-btn.selected')?.textContent?.trim() || "M";
+      const color = document.querySelector('.color-dot.selected')?.title || "Navy Blue";
+      const img = document.getElementById('mainImg')?.src || "assets/orders/shirt.jpg";
+      const prodId = 'prod-' + title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+
+      try {
+        let cart = JSON.parse(localStorage.getItem('xpord_cart') || '[]');
+        const idx = cart.findIndex(i => (i.product && i.product.id === prodId && i.size === size) || (i.id === prodId && i.size === size));
+        if (idx > -1) {
+          cart[idx].quantity = (cart[idx].quantity || 1) + 1;
+        } else {
+          cart.push({
+            id: prodId,
+            product: { id: prodId, title: title, price: price, image: img, sizes: [size], colors: [color], inStock: true },
+            title: title,
+            price: price,
+            image: img,
+            size: size,
+            color: color,
+            quantity: 1
+          });
+        }
+        localStorage.setItem('xpord_cart', JSON.stringify(cart));
+        const u = JSON.parse(localStorage.getItem('xpord_user') || '{}');
+        if (u.uid) localStorage.setItem('xpord_cart_' + u.uid, JSON.stringify(cart));
+
+        const totalQty = cart.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0);
+        cartCount = totalQty;
+      } catch(e) {
+        cartCount++;
+      }
+
+      const hb = document.getElementById('home-cart-badge');
+      if (hb) hb.textContent = cartCount;
+      const pb = document.getElementById('pdp-cart-badge');
+      if (pb) pb.textContent = cartCount;
+      document.querySelectorAll('[data-role="cart-badge"], #acc-cart-badge, #nav-cart-badge').forEach(b => {
+        b.textContent = cartCount;
+      });
+
+      showToastMsg(`Added to cart! (Items: ${cartCount})`);
+    }
+
+    function buyNowAction() {
+      addToCartAction();
+      const u = JSON.parse(localStorage.getItem('xpord_user') || 'null');
+      setTimeout(function() {
+        if (!u || (!u.uid && !u.email)) {
+          try {
+            sessionStorage.setItem('checkout_flow_intent', JSON.stringify({ type: 'checkout_bag' }));
+            localStorage.setItem('xpord_pending_checkout', 'true');
+          } catch(e) {}
+          window.location.href = 'login.html?redirect=checkout.html';
+          return;
+        }
+        if (window.styleHubGo) {
+          window.styleHubGo('checkout.html');
+        } else {
+          window.location.href = 'checkout.html';
+        }
+      }, 300);
+    }
+
+    function shareProduct() {
+      if (navigator.share) {
+        navigator.share({ title: "StyleHub Men's Wear", url: window.location.href });
+      } else {
+        showToastMsg("Link copied to clipboard!");
+      }
+    }
+
+    function showToastMsg(msg) {
+      const t = document.getElementById('toast-msg');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2000);
+    }
+  </script>
+
+<script src="./stylehub-pages.js"></script>
+</body>
+</html>

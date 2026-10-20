@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleHub | Men's Wear (Desktop)</title>
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('stylehub-theme')||'light')}catch(e){}</script>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      color: #0f111a;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    /* Top Brand Header */
+    .top-header {
+      padding: 14px 0;
+      border-bottom: 1px solid #f1f3f7;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .brand-logo h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .brand-logo span {
+      font-size: 10px;
+      font-weight: 600;
+      color: #717684;
+      letter-spacing: 2.5px;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .header-nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .header-nav-links a {
+      color: #1f2937;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-nav-links a:hover,
+    .header-nav-links a.active {
+      color: #0f111a;
+      font-weight: 700;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      max-width: 440px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f3f7;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid #e5e8ee;
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: #1a1d26;
+      width: 100%;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+    .action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: #11131c;
+      font-size: 11.5px;
+      font-weight: 600;
+      position: relative;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .action-item i {
+      font-size: 19px;
+    }
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: 2px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Views */
+    .desktop-view {
+      display: none;
+      width: 100%;
+    }
+    .desktop-view.active {
+      display: block;
+    }
+
+    /* Secondary Nav Bar */
+    .main-nav-bar {
+      background: #11131c;
+      color: #ffffff;
+      width: 100%;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      gap: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 20px;
+      white-space: nowrap;
+    }
+    .nav-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .nav-features {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      padding-left: 16px;
+      font-size: 11px;
+    }
+    .nav-feature-item:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+    .nav-feature-item strong {
+      display: block;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    /* ==========================================================================
+       VIEW 1: HOMEPAGE
+       ========================================================================== */
+    .hero-section {
+      padding: 24px 0 36px;
+      width: 100%;
+    }
+    .hero-card {
+      background: linear-gradient(105deg, #dfd7cc 0%, #d4cac0 40%, #c4b9ad 100%);
+      border-radius: 20px;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      padding: 40px 48px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .hero-content {
+      width: 100%;
+      max-width: 480px;
+      z-index: 2;
+    }
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: #4b4841;
+      margin-bottom: 10px;
+      display: block;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      color: #11131c;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .hero-desc {
+      font-size: 14px;
+      color: #3b3934;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #11131c;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    .hero-model-img {
+      position: absolute;
+      right: 140px;
+      bottom: -10px;
+      height: 400px;
+      width: auto;
+      object-fit: cover;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-side-text {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #655d54;
+      letter-spacing: 5px;
+      line-height: 1.8;
+      text-align: right;
+      z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-card {
+        padding: 30px;
+        min-height: auto;
+      }
+      .hero-model-img {
+        right: 20px;
+        height: 320px;
+        opacity: 0.85;
+      }
+      .hero-side-text {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .hero-model-img {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-height: 240px;
+        object-fit: cover;
+        margin-top: 16px;
+        border-radius: 12px;
+      }
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .section-title-wrap h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #11131c;
+    }
+    .view-all-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: #11131c;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+
+    .category-section {
+      padding-bottom: 44px;
+      width: 100%;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+    @media (max-width: 1100px) {
+      .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f8fafc;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #edf0f5;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      min-width: 0;
+    }
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    .cat-img-box {
+      width: 100%;
+      height: 155px;
+      overflow: hidden;
+      background: #eef2f6;
+    }
+    .cat-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .category-card span {
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: #11131c;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       VIEW 2: CATEGORY CATALOG (LEFT SIDEBAR PERMANENTLY FIXED ON LEFT SIDE)
+       EXACT AS PER USER IMAGE 1000114640.png - NEVER STACKED ON TOP!
+       ========================================================================== */
+    #view-catalog {
+      padding: 24px 0 60px;
+      width: 100%;
+    }
+
+    .breadcrumb-bar {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .breadcrumb-bar a {
+      color: #64748b;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .breadcrumb-bar a:hover {
+      color: #0f111a;
+      text-decoration: underline;
+    }
+
+    .catalog-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .catalog-title-box h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f111a;
+      margin-bottom: 4px;
+    }
+    .catalog-title-box p {
+      font-size: 13.5px;
+      color: #64748b;
+    }
+    .catalog-meta-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #64748b;
+      flex-wrap: wrap;
+    }
+    .sort-dropdown-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 600;
+      color: #0f111a;
+      cursor: pointer;
+    }
+
+    /* 2-COLUMN STRICT SIDE-BY-SIDE LAYOUT: CATEGORIES/FILTERS ALWAYS ON LEFT SIDE! */
+    .catalog-layout-grid {
+      display: grid !important;
+      grid-template-columns: 250px 1fr !important;
+      gap: 28px;
+      align-items: start;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .catalog-layout-grid {
+        grid-template-columns: 210px 1fr !important;
+        gap: 16px;
+      }
+    }
+
+    /* LEFT SIDEBAR (STICKY & ELEVATED) */
+    .catalog-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 80px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      padding-right: 4px;
+    }
+
+    .cat-menu-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .cat-menu-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f111a;
+      margin-bottom: 12px;
+    }
+    .cat-menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cat-menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .cat-menu-item:hover {
+      background: #f1f5f9;
+      color: #0f111a;
+    }
+    .cat-menu-item.active {
+      background: #e0f2fe;
+      color: #0284c7;
+      font-weight: 700;
+    }
+    .cat-menu-item span.count {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .cat-menu-item.active span.count {
+      color: #0284c7;
+    }
+
+    /* Filters Group Card in Left Sidebar */
+    .filter-group-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .filter-group-card h3 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0f111a;
+    }
+    .filter-sub-group h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 8px;
+    }
+    .range-wrap input {
+      width: 100%;
+      accent-color: #0f111a;
+    }
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Size Pills in Filter */
+    .size-filter-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .s-pill {
+      padding: 5px 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      background: #ffffff;
+      cursor: pointer;
+    }
+    .s-pill.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    /* Color Swatches in Filter */
+    .color-swatch-list {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .c-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Checkbox Filter Rows */
+    .filter-check-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #475569;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+    .filter-check-row input {
+      accent-color: #0f111a;
+      margin-right: 6px;
+    }
+
+    /* Right Products Grid (4-5 Columns depending on viewport width) */
+    .catalog-5col-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+    @media (min-width: 1280px) {
+      .catalog-5col-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+    @media (max-width: 1024px) {
+      .catalog-5col-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 680px) {
+      .catalog-5col-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
+    .catalog-card {
+      background: #ffffff;
+      border: 1px solid #eef0f4;
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      min-width: 0;
+    }
+    .catalog-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .catalog-card-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #f8fafc;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .catalog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .catalog-card-fav {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #64748b;
+      cursor: pointer;
+    }
+    .catalog-card-fav.active {
+      color: #ef4444;
+    }
+    .catalog-card-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f111a;
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .catalog-card-price {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0f111a;
+      margin-bottom: 4px;
+    }
+    .catalog-card-rating {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+    .catalog-card-rating i {
+      color: #f59e0b;
+    }
+    .catalog-color-dots {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .dot-mini {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .catalog-add-btn {
+      background: #11131c;
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 8px 0;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      transition: background 0.15s ease;
+    }
+    .catalog-add-btn:hover {
+      background: #252835;
+    }
+
+    /* Bottom Trust Bar */
+    .bottom-features {
+      border-top: 1px solid #f0f2f5;
+      padding: 28px 0;
+      background: #ffffff;
+      width: 100%;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .feature-col {
+        border-right: none !important;
+      }
+    }
+    .feature-col {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 16px;
+      border-right: 1px solid #e5e8ee;
+    }
+    .feature-col:last-child {
+      border-right: none;
+    }
+    .feature-col i {
+      font-size: 26px;
+      color: #11131c;
+    }
+    .feature-content h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #11131c;
+      margin-bottom: 2px;
+    }
+    .feature-content p {
+      font-size: 11.5px;
+      color: #64748b;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: #0f111a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2000;
+      display: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toast-msg" class="toast">Notification</div>
+
+  <!-- Top Header -->
+  <header class="topbar">
+    <button class="iconbtn back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="window.handleGlobalBack ? window.handleGlobalBack('index.html') : (window.history.length > 1 ? window.history.back() : window.location.href='index.html')">
+      <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+    </button>
+
+    <div class="brand" onclick="window.location.href='index.html'">
+      <div class="brandname">Style<span class="hub">Hub</span></div>
+      <div class="tagline">FASHION FOR EVERY YOU</div>
+    </div>
+
+    <button class="iconbtn" aria-label="Wishlist" onclick="window.styleHubGo ? window.styleHubGo('cart.html?tab=wishlist') : window.location.href='cart.html?tab=wishlist'">
+      <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+      <span class="badge" id="wishlist-badge">3</span>
+    </button>
+
+    <button class="iconbtn" aria-label="Shopping bag" onclick="window.styleHubGo ? window.styleHubGo('cart.html') : window.location.href='cart.html'">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="badge" id="headerCount">0</span>
+    </button>
+  </header>
+
+  <!-- Secondary Nav Bar -->
+  <nav class="main-nav-bar">
+    <div class="container">
+      <div class="nav-inner">
+        <ul class="nav-links">
+          <li><a onclick="toggleDesktopView('home')" id="nav-home" class="active">Home</a></li>
+          <li><a onclick="toggleDesktopView('catalog')" id="nav-shirts">Shirts</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">T-Shirts</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">Jeans</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">Trousers</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">Hoodies</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">Jackets</a></li>
+          <li><a onclick="toggleDesktopView('catalog')">Track Pants</a></li>
+        </ul>
+
+        <div class="nav-features">
+          <div class="nav-feature-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+              <strong>Free Shipping</strong>
+              <span style="color:#9ca3af;">on orders above ₹999</span>
+            </div>
+          </div>
+          <a href="returns.html" class="nav-feature-item" style="text-decoration:none;color:inherit;cursor:pointer;">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <strong>Easy Returns</strong>
+              <span style="color:#9ca3af;">within 7 days</span>
+            </div>
+          </a>
+          <a href="contact.html" class="nav-feature-item" style="text-decoration:none;color:inherit;cursor:pointer;">
+            <i class="fa-solid fa-headset"></i>
+            <div>
+              <strong>Need Help?</strong>
+              <span style="color:#9ca3af;">Contact Us</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       VIEW 1: HOMEPAGE
+       ========================================================================= -->
+  <div id="view-home" class="desktop-view active">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="hero-tag">MEN'S WEAR</span>
+            <h2 class="hero-title">Style for<br>Every You</h2>
+            <p class="hero-desc">Discover premium men's clothing for work, weekends and beyond.</p>
+            <a class="hero-btn" onclick="toggleDesktopView('catalog')">Shop Collection &rarr;</a>
+          </div>
+
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop&q=80" alt="Style for Every You" class="hero-model-img" />
+
+          <div class="hero-side-text">
+            <span>BETTER</span>
+            <span>OUTFITS</span>
+            <span>BRIGHTER</span>
+            <span>DAYS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop by Category Section -->
+    <section class="category-section">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2>Shop by Category</h2>
+          <a class="view-all-link" onclick="toggleDesktopView('catalog')">View All Categories &rarr;</a>
+        </div>
+
+        <div class="categories-grid">
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&auto=format&fit=crop&q=80" alt="Shirts" />
+            </div>
+            <span>Shirts</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=300&auto=format&fit=crop&q=80" alt="T-Shirts" />
+            </div>
+            <span>T-Shirts</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1542272604-780c96856592?w=300&auto=format&fit=crop&q=80" alt="Jeans" />
+            </div>
+            <span>Jeans</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&auto=format&fit=crop&q=80" alt="Trousers" />
+            </div>
+            <span>Trousers</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&auto=format&fit=crop&q=80" alt="Hoodies" />
+            </div>
+            <span>Hoodies</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1548883354-7622d03aca27?w=300&auto=format&fit=crop&q=80" alt="Jackets" />
+            </div>
+            <span>Jackets</span>
+          </div>
+          <div class="category-card" onclick="toggleDesktopView('catalog')">
+            <div class="cat-img-box">
+              <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&auto=format&fit=crop&q=80" alt="Track Pants" />
+            </div>
+            <span>Track Pants</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Features -->
+    <footer class="bottom-features">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-col">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div class="feature-content">
+              <h4>Free Shipping</h4>
+              <p>on orders above ₹999</p>
+            </div>
+          </div>
+          <div class="feature-col">
+            <i class="fa-solid fa-rotate-left"></i>
+            <div class="feature-content">
+              <h4>Easy Returns</h4>
+              <p>within 7 days</p>
+            </div>
+          </div>
+          <div class="feature-col">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div class="feature-content">
+              <h4>Secure Payments</h4>
+              <p>your data is safe with us</p>
+            </div>
+          </div>
+          <div class="feature-col">
+            <i class="fa-solid fa-headset"></i>
+            <div class="feature-content">
+              <h4>24/7 Support</h4>
+              <p>we're here to help</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================================================
+       VIEW 2: CATEGORY CATALOG - STRICTLY ON THE LEFT SIDE
+       ========================================================================= -->
+  <div id="view-catalog" class="desktop-view">
+    <div class="container">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <a onclick="toggleDesktopView('home')">Home</a> &gt; <span>Shirts</span>
+      </div>
+
+      <!-- Title & Controls Header -->
+      <div class="catalog-header-row">
+        <div class="catalog-title-box">
+          <h1>Shirts</h1>
+          <p>Explore our collection of premium shirts for every occasion.</p>
+        </div>
+
+        <div class="catalog-meta-controls">
+          <span>Showing 1-24 of 120 products</span>
+          <div class="sort-dropdown-box">
+            <span>Sort by: <strong>Popularity</strong></span>
+            <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-COLUMN STRICT SIDE-BY-SIDE: SIDEBAR IS PERMANENTLY ON LEFT! -->
+      <div class="catalog-layout-grid">
+        <!-- Left Sidebar (Permanent on Left) -->
+        <aside class="catalog-sidebar">
+          <!-- Categories Card -->
+          <div class="cat-menu-card">
+            <div class="cat-menu-title">Categories</div>
+            <ul class="cat-menu-list">
+              <li class="cat-menu-item active">
+                <span>Shirts</span> <span class="count">(120)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>T-Shirts</span> <span class="count">(98)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>Jeans</span> <span class="count">(76)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>Trousers</span> <span class="count">(64)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>Hoodies</span> <span class="count">(52)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>Jackets</span> <span class="count">(48)</span>
+              </li>
+              <li class="cat-menu-item">
+                <span>Track Pants</span> <span class="count">(36)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Filters Group Card -->
+          <div class="filter-group-card">
+            <h3>Filters</h3>
+
+            <!-- Price Range -->
+            <div class="filter-sub-group">
+              <h4>Price Range</h4>
+              <div class="range-wrap">
+                <input type="range" min="499" max="2999" value="2499" />
+                <div class="range-labels">
+                  <span>₹499</span>
+                  <span>₹2,999</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Size Pills -->
+            <div class="filter-sub-group">
+              <h4>Size</h4>
+              <div class="size-filter-pills">
+                <span class="s-pill active">S</span>
+                <span class="s-pill active">M</span>
+                <span class="s-pill">L</span>
+                <span class="s-pill">XL</span>
+                <span class="s-pill">XXL</span>
+              </div>
+            </div>
+
+            <!-- Color Swatches -->
+            <div class="filter-sub-group">
+              <h4>Color</h4>
+              <div class="color-swatch-list">
+                <span class="c-dot" style="background:#111111;"></span>
+                <span class="c-dot" style="background:#bae6fd;"></span>
+                <span class="c-dot" style="background:#1e3a8a;"></span>
+                <span class="c-dot" style="background:#ffffff;"></span>
+                <span class="c-dot" style="background:#4b5e40;"></span>
+                <span class="c-dot" style="background:#881337;"></span>
+                <span style="font-size:11.5px; color:#64748b; cursor:pointer;">+ More</span>
+              </div>
+            </div>
+
+            <!-- Fit Type -->
+            <div class="filter-sub-group">
+              <h4>Fit Type</h4>
+              <label class="filter-check-row">
+                <span><input type="checkbox" checked /> Regular Fit</span>
+                <span style="color:#94a3b8;">(72)</span>
+              </label>
+              <label class="filter-check-row">
+                <span><input type="checkbox" /> Slim Fit</span>
+                <span style="color:#94a3b8;">(36)</span>
+              </label>
+              <label class="filter-check-row">
+                <span><input type="checkbox" /> Relaxed Fit</span>
+                <span style="color:#94a3b8;">(12)</span>
+              </label>
+            </div>
+
+            <!-- Sleeve Length -->
+            <div class="filter-sub-group">
+              <h4>Sleeve Length</h4>
+              <label class="filter-check-row">
+                <span><input type="checkbox" checked /> Full Sleeve</span>
+                <span style="color:#94a3b8;">(88)</span>
+              </label>
+              <label class="filter-check-row">
+                <span><input type="checkbox" /> Half Sleeve</span>
+                <span style="color:#94a3b8;">(32)</span>
+              </label>
+            </div>
+
+            <!-- Pattern -->
+            <div class="filter-sub-group">
+              <h4>Pattern</h4>
+              <label class="filter-check-row">
+                <span><input type="checkbox" checked /> Solid</span>
+                <span style="color:#94a3b8;">(56)</span>
+              </label>
+              <label class="filter-check-row">
+                <span><input type="checkbox" /> Checks</span>
+                <span style="color:#94a3b8;">(28)</span>
+              </label>
+              <label class="filter-check-row">
+                <span><input type="checkbox" /> Stripes</span>
+                <span style="color:#94a3b8;">(18)</span>
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right 4-5 Column Products Grid -->
+        <main class="catalog-5col-grid">
+          <!-- 1. Premium Cotton Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Premium Cotton Shirt</div>
+            <div class="catalog-card-price">₹1,299</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.5 (1.2K)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#111;"></span>
+              <span class="dot-mini" style="background:#94a3b8;"></span>
+              <span class="dot-mini" style="background:#1e3a8a;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 2. Slim Fit Formal Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Slim Fit Formal Shirt</div>
+            <div class="catalog-card-price">₹1,499</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.4 (892)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#38bdf8;"></span>
+              <span class="dot-mini" style="background:#cbd5e1;"></span>
+              <span class="dot-mini" style="background:#111;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 3. Checked Casual Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Checked Casual Shirt</div>
+            <div class="catalog-card-price">₹1,099</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.3 (756)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#4b5e40;"></span>
+              <span class="dot-mini" style="background:#1e3a8a;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 4. Oxford Solid Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Oxford Solid Shirt</div>
+            <div class="catalog-card-price">₹1,399</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.6 (1.1K)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#ffffff; border:1px solid #ccc;"></span>
+              <span class="dot-mini" style="background:#111;"></span>
+              <span class="dot-mini" style="background:#78350f;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 5. Linen Blend Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Linen Blend Shirt</div>
+            <div class="catalog-card-price">₹1,699</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.5 (634)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#1e3a8a;"></span>
+              <span class="dot-mini" style="background:#475569;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 6. Striped Casual Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Striped Casual Shirt</div>
+            <div class="catalog-card-price">₹1,199</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.4 (524)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#60a5fa;"></span>
+              <span class="dot-mini" style="background:#e2e8f0;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 7. Premium Formal Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Premium Formal Shirt</div>
+            <div class="catalog-card-price">₹1,599</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.6 (980)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#881337;"></span>
+              <span class="dot-mini" style="background:#ffffff; border:1px solid #ccc;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 8. Regular Fit Check Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Regular Fit Check Shirt</div>
+            <div class="catalog-card-price">₹1,249</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.3 (620)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#78716c;"></span>
+              <span class="dot-mini" style="background:#111;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 9. Solid Casual Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Solid Casual Shirt</div>
+            <div class="catalog-card-price">₹1,099</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.4 (412)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#881337;"></span>
+              <span class="dot-mini" style="background:#4b5e40;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+
+          <!-- 10. Denim Shirt -->
+          <div class="catalog-card">
+            <div class="catalog-card-img">
+              <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=80" alt="Shirt" />
+              <button class="catalog-card-fav"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            <div class="catalog-card-title">Denim Shirt</div>
+            <div class="catalog-card-price">₹1,799</div>
+            <div class="catalog-card-rating"><i class="fa-solid fa-star"></i> 4.5 (689)</div>
+            <div class="catalog-color-dots">
+              <span class="dot-mini" style="background:#1e3a8a;"></span>
+              <span class="dot-mini" style="background:#475569;"></span>
+            </div>
+            <button class="catalog-add-btn" onclick="addCartToast()">Add to Cart</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDesktopView(viewName) {
+      document.querySelectorAll('.desktop-view').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.header-nav-links a, .nav-links a').forEach(a => a.classList.remove('active'));
+
+      if (viewName === 'home') {
+        document.getElementById('view-home').classList.add('active');
+        document.getElementById('hlink-home')?.classList.add('active');
+        document.getElementById('nav-home')?.classList.add('active');
+      } else if (viewName === 'catalog') {
+        document.getElementById('view-catalog').classList.add('active');
+        document.getElementById('hlink-categories')?.classList.add('active');
+        document.getElementById('nav-shirts')?.classList.add('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    function addCartToast() {
+      showToast("Added to Cart! (Items: 4)");
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast-msg');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2500);
+    }
+  </script>
+<script src="./stylehub-pages.js"></script>
+</body>
+</html>

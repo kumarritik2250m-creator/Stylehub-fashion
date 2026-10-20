@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>StyleHub — My Orders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="orders.css">
+</head>
+<body>
+<div class="page">
+  <header class="header">
+    <button class="head-btn" id="backBtn" aria-label="Back">←</button>
+    <button class="brand" id="brandBtn" aria-label="StyleHub">STYLE<span>HUB</span></button>
+  </header>
+
+  <main>
+    <section class="title-area">
+      <h1>My Orders</h1>
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-filter="all">All Orders</button>
+      <button class="tab" data-filter="processing">Processing</button>
+      <button class="tab" data-filter="shipped">Shipped</button>
+      <button class="tab" data-filter="delivered">Delivered</button>
+      <button class="tab" data-filter="cancelled">Cancelled</button>
+    </nav>
+
+    <section class="orders" id="orders"></section>
+    <section class="empty hidden" id="empty">
+      <div class="empty-box">📦</div>
+      <h2>No orders found</h2>
+      <p>There are no orders in this category.</p>
+      <button class="filled-btn" id="shopBtn">Continue Shopping</button>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-page="Home"><span class="nav-icon home-icon"></span><em>Home</em></button>
+    <button data-page="Categories"><span class="nav-icon grid-icon"></span><em>Categories</em></button>
+    <button data-page="Wishlist"><span class="nav-icon heart-icon">♡</span><em>Wishlist</em></button>
+    <button data-page="Cart" class="cart-nav"><span class="nav-icon bag-icon"></span><i>2</i><em>Cart</em></button>
+    <button data-page="Account" class="selected"><span class="nav-icon user-icon"></span><em>Account</em></button>
+  </nav>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Generic Prompt / Review Overlay -->
+<div class="overlay hidden" id="overlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Detailed Order View Modal -->
+<div class="order-detail-overlay hidden" id="orderDetailOverlay" role="dialog" aria-modal="true" aria-labelledby="orderDetailTitle">
+  <div class="order-detail-modal" id="orderDetailModal">
+    <!-- Populated dynamically by orders.js showOrderDetail() -->
+  </div>
+</div>
+
+<!-- Tax Invoice Modal -->
+<div class="invoice-overlay hidden" id="invoiceOverlay" role="dialog" aria-modal="true">
+  <div class="invoice-modal" id="invoiceModal">
+    <!-- Populated dynamically by orders.js showInvoiceModal() -->
+  </div>
+</div>
+
+<script src="stylehub-pages.js"></script>
+<script src="orders.js"></script>
+</body>
+</html>

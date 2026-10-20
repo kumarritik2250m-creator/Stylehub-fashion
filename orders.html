@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>StyleHub — My Orders</title>
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('stylehub-theme')||'light')}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="orders.css">
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <button class="iconbtn back-btn sh-circular-back" id="backBtn" aria-label="Back" onclick="window.handleGlobalBack ? window.handleGlobalBack('index.html') : (window.history.length > 1 ? window.history.back() : window.location.href='index.html')">
+      <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6M9 12h12"/></svg>
+    </button>
+
+    <div class="brand" onclick="window.location.href='index.html'">
+      <div class="brandname">Style<span class="hub">Hub</span></div>
+      <div class="tagline">FASHION FOR EVERY YOU</div>
+    </div>
+
+    <button class="iconbtn" aria-label="Wishlist" onclick="window.styleHubGo ? window.styleHubGo('cart.html?tab=wishlist') : window.location.href='cart.html?tab=wishlist'">
+      <svg viewBox="0 0 24 24"><path d="M20.8 4.8a5.4 5.4 0 0 0-7.6 0L12 6l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6l1.2 1.2L12 21l7.6-7.4 1.2-1.2a5.4 5.4 0 0 0 0-7.6Z"/></svg>
+      <span class="badge" id="wishlist-badge">3</span>
+    </button>
+
+    <button class="iconbtn" aria-label="Shopping bag" onclick="window.styleHubGo ? window.styleHubGo('cart.html') : window.location.href='cart.html'">
+      <svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="badge" id="headerCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="title-area">
+      <h1>My Orders</h1>
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-filter="all">All Orders</button>
+      <button class="tab" data-filter="processing">Processing</button>
+      <button class="tab" data-filter="shipped">Shipped</button>
+      <button class="tab" data-filter="delivered">Delivered</button>
+      <button class="tab" data-filter="cancelled">Cancelled</button>
+    </nav>
+
+    <section class="orders" id="orders"></section>
+    <section class="empty hidden" id="empty">
+      <div class="empty-box">📦</div>
+      <h2>No orders found</h2>
+      <p>There are no orders in this category.</p>
+      <button class="filled-btn" id="shopBtn">Continue Shopping</button>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Generic Prompt / Review Overlay -->
+<div class="overlay hidden" id="overlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- Detailed Order View Modal -->
+<div class="order-detail-overlay hidden" id="orderDetailOverlay" role="dialog" aria-modal="true" aria-labelledby="orderDetailTitle">
+  <div class="order-detail-modal" id="orderDetailModal">
+    <!-- Populated dynamically by orders.js showOrderDetail() -->
+  </div>
+</div>
+
+<!-- Tax Invoice Modal -->
+<div class="invoice-overlay hidden" id="invoiceOverlay" role="dialog" aria-modal="true">
+  <div class="invoice-modal" id="invoiceModal">
+    <!-- Populated dynamically by orders.js showInvoiceModal() -->
+  </div>
+</div>
+
+<script src="stylehub-pages.js"></script>
+<script src="orders.js"></script>
+</body>
+</html>

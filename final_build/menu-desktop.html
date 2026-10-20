@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StyleHub | Desktop 3-Dot Menu Page</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #0f111a;
+      line-height: 1.5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       DESKTOP TOP BRAND HEADER
+       ========================================================================== */
+    .top-header {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f3f7;
+      padding: 14px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .menu-trigger-btn {
+      background: #f4f5f8;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: #0f111a;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .menu-trigger-btn:hover {
+      background: #e5e8ee;
+      transform: scale(1.05);
+    }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .brand-logo h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .brand-logo span {
+      font-size: 9px;
+      font-weight: 600;
+      color: #717684;
+      letter-spacing: 2px;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 580px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f1f3f7;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 1px solid #e5e8ee;
+    }
+    .search-box i {
+      color: #8c92a0;
+      font-size: 14px;
+    }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      font-size: 13px;
+      color: #1a1d26;
+      width: 100%;
+    }
+    .search-box input::placeholder {
+      color: #8c92a0;
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .action-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      text-decoration: none;
+      color: #11131c;
+      font-size: 11.5px;
+      font-weight: 600;
+      position: relative;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .action-item i {
+      font-size: 19px;
+    }
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      right: 2px;
+      background: #ef4444;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Secondary Nav Bar */
+    .sub-nav-bar {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f3f7;
+      padding: 0 40px;
+    }
+    .sub-nav-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .sub-nav-inner a {
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 12px 0;
+      position: relative;
+      transition: color 0.15s ease;
+    }
+    .sub-nav-inner a:hover,
+    .sub-nav-inner a.active {
+      color: #0f111a;
+      font-weight: 700;
+    }
+    .sub-nav-inner a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: #0f111a;
+      border-radius: 2px;
+    }
+
+    /* ==========================================================================
+       MAIN DESKTOP BACKGROUND (VISIBLE BEHIND 3-DOT MENU)
+       ========================================================================== */
+    .main-container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 24px 40px 60px;
+    }
+
+    /* 1. Hero Section */
+    .hero-card {
+      background: linear-gradient(110deg, #dfd7cc 0%, #d4cac0 40%, #c4b9ad 100%);
+      border-radius: 20px;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      padding: 40px 60px;
+      margin-bottom: 36px;
+    }
+    .hero-left {
+      max-width: 440px;
+      z-index: 2;
+    }
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: #0f111a;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .hero-desc {
+      font-size: 14.5px;
+      color: #3b3934;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0f111a;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .hero-center-img {
+      position: absolute;
+      left: 48%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 310px;
+      object-fit: contain;
+      z-index: 1;
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.16));
+    }
+    .hero-right-text {
+      text-align: right;
+      z-index: 2;
+    }
+    .hero-right-text h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #11131c;
+      line-height: 1.3;
+    }
+    .hero-right-text .line {
+      width: 48px;
+      height: 3px;
+      background: #11131c;
+      margin: 12px 0 0 auto;
+    }
+
+    /* 2. Category Cards Section */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .cat-card {
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #eef0f4;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    }
+    .cat-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: #f1f3f7;
+    }
+    .cat-card-footer {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+    .cat-card-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f111a;
+    }
+    .cat-card-info span {
+      font-size: 11.5px;
+      color: #717684;
+      font-weight: 500;
+    }
+    .cat-card-footer i {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    /* 3. Best Sellers Section */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .section-head h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f111a;
+    }
+    .view-all-link {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 12px;
+      border: 1px solid #eef0f4;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    }
+    .product-img-wrap {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f8fafc;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .wish-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ffffff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #4b5563;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #0f111a;
+      margin-bottom: 6px;
+    }
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .current-price {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0f111a;
+    }
+    .original-price {
+      font-size: 12.5px;
+      color: #8c92a0;
+      text-decoration: line-through;
+    }
+    .discount-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #057a55;
+      background: #def7ec;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       THE 3-DOT / SIDEBAR MENU (EXACT MATCH FOR SCREENSHOT 1000114646.png)
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 17, 26, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 1000;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    .drawer-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 350px;
+      background: #ffffff;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 8px 0 35px rgba(0, 0, 0, 0.16);
+      transform: translateX(0); /* OPEN BY DEFAULT */
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+    .side-drawer.closed {
+      transform: translateX(-100%);
+    }
+
+    /* Drawer Header */
+    .drawer-header {
+      padding: 16px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f1f3f7;
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      z-index: 10;
+    }
+    .close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: #f4f5f8;
+      color: #0f111a;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .close-btn:hover {
+      background: #e5e8ee;
+      transform: rotate(90deg);
+    }
+
+    /* User Profile Card */
+    .profile-card {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      border-bottom: 1px solid #f3f4f6;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s ease;
+    }
+    .profile-card:hover {
+      background: #f9fafb;
+    }
+    .profile-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .profile-meta {
+      flex: 1;
+    }
+    .profile-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f111a;
+      line-height: 1.2;
+    }
+    .profile-sub {
+      font-size: 11.5px;
+      color: #717684;
+      margin-top: 2px;
+    }
+    .chevron-right {
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    /* Drawer Scrollable Body */
+    .drawer-body {
+      flex: 1;
+      padding: 8px 12px 20px;
+      overflow-y: auto;
+    }
+
+    .menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #1f2937;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .menu-item:hover {
+      background: #f3f4f6;
+      color: #0f111a;
+    }
+    .menu-item.active {
+      background: #eff4fc;
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+    .menu-item.active .item-icon {
+      color: #1d4ed8;
+    }
+    .menu-item.active .chevron-right {
+      color: #1d4ed8;
+    }
+
+    .item-icon {
+      width: 20px;
+      text-align: center;
+      color: #4b5563;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .item-title {
+      flex: 1;
+    }
+
+    .section-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #9ca3af;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 18px 14px 6px;
+    }
+
+    /* Style Better Promo Banner */
+    .promo-banner {
+      background: linear-gradient(135deg, #f4f4f6 0%, #e9e9ee 100%);
+      border-radius: 14px;
+      padding: 14px;
+      margin: 16px 4px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #e2e4ea;
+    }
+    .promo-text {
+      flex: 1;
+      padding-right: 8px;
+    }
+    .promo-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f111a;
+      line-height: 1.2;
+    }
+    .promo-desc {
+      font-size: 11px;
+      color: #4b5563;
+      line-height: 1.35;
+      margin-top: 4px;
+    }
+    .promo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      background: #0f111a;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s ease;
+    }
+    .promo-btn:hover {
+      background: #252835;
+    }
+    .promo-img {
+      width: 84px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .drawer-footer {
+      text-align: center;
+      padding: 10px 0 14px;
+      font-size: 11px;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Brand Header -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <!-- 3-Dot / Menu Toggle Button -->
+        <button class="menu-trigger-btn" onclick="toggleDrawer()" title="Toggle 3-Dot Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="brand-logo" onclick="returnToOrigin()" style="cursor:pointer;">
+          <h1>StyleHub</h1>
+          <span>MEN'S WEAR</span>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search for clothes, shoes, accessories...">
+      </div>
+
+      <div class="user-actions">
+        <div class="action-item">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count">3</span>
+          <span>Wishlist</span>
+        </div>
+        <div class="action-item">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count">2</span>
+          <span>Cart</span>
+        </div>
+        <div class="action-item" onclick="openDrawer()">
+          <i class="fa-regular fa-user"></i>
+          <span>Account</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Secondary Category Nav Bar -->
+  <nav class="sub-nav-bar">
+    <div class="sub-nav-inner">
+      <a href="#home" class="active">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#deals">Deals</a>
+      <a href="#new-arrivals">New Arrivals</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- Main Desktop Background Content -->
+  <main class="main-container">
+    <!-- Hero Banner -->
+    <section class="hero-card">
+      <div class="hero-left">
+        <h2 class="hero-title">Upgrade<br>Your Style</h2>
+        <p class="hero-desc">Premium men's wear for every occasion.</p>
+        <a href="#shop" class="hero-btn">Shop Now &rarr;</a>
+      </div>
+      <img class="hero-center-img" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80" alt="Polo Shirts">
+      <div class="hero-right-text">
+        <h3>Timeless Looks<br>Modern You</h3>
+        <div class="line"></div>
+      </div>
+    </section>
+
+    <!-- Category Cards -->
+    <section class="category-grid">
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=400&auto=format&fit=crop" alt="Jeans">
+        <div class="cat-card-footer">
+          <div class="cat-card-info">
+            <h4>Jeans</h4>
+            <span>80+ Styles</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=400&auto=format&fit=crop" alt="Jackets">
+        <div class="cat-card-footer">
+          <div class="cat-card-info">
+            <h4>Jackets</h4>
+            <span>45+ Styles</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=400&auto=format&fit=crop" alt="Casual Wear">
+        <div class="cat-card-footer">
+          <div class="cat-card-info">
+            <h4>Casual Wear</h4>
+            <span>70+ Styles</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400&auto=format&fit=crop" alt="Shirts">
+        <div class="cat-card-footer">
+          <div class="cat-card-info">
+            <h4>Shirts</h4>
+            <span>90+ Styles</span>
+          </div>
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section>
+      <div class="section-head">
+        <h2>Best Sellers</h2>
+        <a href="#all-products" class="view-all-link">View All &rarr;</a>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=500&auto=format&fit=crop" alt="Men's Casual Shirt">
+            <button class="wish-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Men's Casual Shirt</div>
+          <div class="product-price-row">
+            <span class="current-price">₹1,299</span>
+            <span class="original-price">₹1,699</span>
+            <span class="discount-tag">24% OFF</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1542272604-780c96856592?q=80&w=500&auto=format&fit=crop" alt="Slim Fit Jeans">
+            <button class="wish-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Slim Fit Jeans</div>
+          <div class="product-price-row">
+            <span class="current-price">₹1,499</span>
+            <span class="original-price">₹1,999</span>
+            <span class="discount-tag">25% OFF</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=500&auto=format&fit=crop" alt="Men's Hoodie">
+            <button class="wish-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Men's Hoodie</div>
+          <div class="product-price-row">
+            <span class="current-price">₹1,799</span>
+            <span class="original-price">₹2,499</span>
+            <span class="discount-tag">28% OFF</span>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=500&auto=format&fit=crop" alt="Polo T-Shirt">
+            <button class="wish-btn" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="product-name">Polo T-Shirt</div>
+          <div class="product-price-row">
+            <span class="current-price">₹999</span>
+            <span class="original-price">₹1,299</span>
+            <span class="discount-tag">23% OFF</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       THE 3-DOT MENU SIDEBAR (OPEN BY DEFAULT ON DESKTOP)
+       ========================================================================== -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+  <aside class="side-drawer" id="side-drawer">
+    <!-- Header -->
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <h1>StyleHub</h1>
+        <span>MEN'S WEAR</span>
+      </div>
+      <button class="close-btn" onclick="closeDrawer()" title="Close 3-Dot Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- User Profile Card -->
+    <a href="account.html" onclick="if(window.styleHubGo){event.preventDefault();window.styleHubGo('account.html');}" class="profile-card">
+      <div class="profile-avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="profile-meta">
+        <div class="profile-name">My Account</div>
+        <div class="profile-sub">View your profile</div>
+      </div>
+      <i class="fa-solid fa-chevron-right chevron-right"></i>
+    </a>
+
+    <!-- Drawer Body -->
+    <div class="drawer-body">
+      <ul class="menu-list">
+        <li>
+          <a href="#home" class="menu-item active">
+            <span class="item-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="item-title">Home</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#categories" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-border-all"></i></span>
+            <span class="item-title">Categories</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="orders.html" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-box"></i></span>
+            <span class="item-title">Orders</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#wishlist" class="menu-item">
+            <span class="item-icon"><i class="fa-regular fa-heart"></i></span>
+            <span class="item-title">Wishlist</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#account" class="menu-item">
+            <span class="item-icon"><i class="fa-regular fa-user"></i></span>
+            <span class="item-title">My Account</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#addresses" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <span class="item-title">Addresses</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#payments" class="menu-item">
+            <span class="item-icon"><i class="fa-regular fa-credit-card"></i></span>
+            <span class="item-title">Payment Methods</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="help.html" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-headphones"></i></span>
+            <span class="item-title">Help & Support</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#settings" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-gear"></i></span>
+            <span class="item-title">Settings</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Section: MORE FROM STARHUB -->
+      <div class="section-label">MORE FROM STARHUB</div>
+      <ul class="menu-list">
+        <li>
+          <a href="about.html" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-circle-info"></i></span>
+            <span class="item-title">About Us</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="contact.html" class="menu-item">
+            <span class="item-icon"><i class="fa-regular fa-envelope"></i></span>
+            <span class="item-title">Contact Us</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="returns.html" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-rotate-left"></i></span>
+            <span class="item-title">Returns & Refunds</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="terms.html" class="menu-item">
+            <span class="item-icon"><i class="fa-regular fa-file-lines"></i></span>
+            <span class="item-title">Terms & Conditions</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+        <li>
+          <a href="privacy.html" class="menu-item">
+            <span class="item-icon"><i class="fa-solid fa-shield-halved"></i></span>
+            <span class="item-title">Privacy Policy</span>
+            <i class="fa-solid fa-chevron-right chevron-right"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Promo Card ("Style Better") -->
+      <div class="promo-banner">
+        <div class="promo-text">
+          <div class="promo-title">Style Better</div>
+          <div class="promo-desc">Premium men's wear<br>for every occasion.</div>
+          <button class="promo-btn" onclick="location.href='#shop'">Shop Now &rarr;</button>
+        </div>
+        <img class="promo-img" src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=200&auto=format&fit=crop&q=80" alt="Folded Polos">
+      </div>
+
+      <!-- App Version Footer -->
+      <div class="drawer-footer">
+        App Version 1.0.0
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    const drawer = document.getElementById('side-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+
+    // Cache return URL from query param or referrer on load
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var ret = params.get('return');
+      if (ret && !ret.includes('menu')) {
+        try { sessionStorage.setItem('sh_menu_return_url', ret); } catch(e){}
+      } else if (document.referrer && !document.referrer.includes('menu') && document.referrer.indexOf(location.host) !== -1) {
+        try {
+          var refPath = new URL(document.referrer).pathname.split('/').pop() || 'index.html';
+          if (new URL(document.referrer).search) refPath += new URL(document.referrer).search;
+          sessionStorage.setItem('sh_menu_return_url', refPath);
+        } catch(e){}
+      }
+    })();
+
+    function returnToOrigin() {
+      var params = new URLSearchParams(window.location.search);
+      var returnUrl = params.get('return');
+      if (!returnUrl) {
+        try { returnUrl = sessionStorage.getItem('sh_menu_return_url'); } catch(e){}
+      }
+      try { sessionStorage.removeItem('sh_menu_return_url'); } catch(e){}
+
+      if (returnUrl && !returnUrl.includes('menu')) {
+        if (window.styleHubGo) {
+          window.styleHubGo(returnUrl);
+        } else {
+          window.location.href = returnUrl;
+        }
+        return;
+      }
+
+      if (document.referrer && !document.referrer.includes('menu') && document.referrer.indexOf(location.host) !== -1) {
+        window.location.href = document.referrer;
+        return;
+      }
+
+      if (window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+
+      if (window.styleHubGo) {
+        window.styleHubGo('index.html');
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Open by default on page load (matching screenshot exactly)
+    function openDrawer() {
+      drawer.classList.remove('closed');
+      overlay.classList.remove('hidden');
+    }
+
+    function closeDrawer() {
+      drawer.classList.add('closed');
+      overlay.classList.add('hidden');
+      setTimeout(returnToOrigin, 160);
+    }
+
+    function toggleDrawer() {
+      if (drawer.classList.contains('closed')) {
+        openDrawer();
+      } else {
+        closeDrawer();
+      }
+    }
+
+    // Active item selection
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Close on Escape key press
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDrawer();
+      }
+    });
+
+    // Ensure it starts open
+    openDrawer();
+  </script>
+<script src="./stylehub-pages.js"></script>
+</body>
+</html>
